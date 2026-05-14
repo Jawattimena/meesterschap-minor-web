@@ -1,0 +1,290 @@
+@font-face {
+    font-family: 'Satoshi';
+    src: url(/fonts/Satoshi-Variable.ttf);
+}
+
+@font-face {
+    font-family: 'Satoshi-italic';
+    src: url(/fonts/Satoshi-VariableItalic.ttf);
+}
+
+:root{
+    color-scheme: light dark;
+
+    /* colors */
+    --font-color-lght: #000;
+    
+    
+    --font-color-drk: #fff;
+    --font-muted-drk: #888;
+    
+    --bg-color-profiletag-drk: #151518;
+    --bg-color-infoboard-drk: #0f0f11;
+    --bg-color-dashboard-drk: #080808;
+
+    --border-color-drk: #1a1a1a;
+
+    /* afmetingen */
+    --gaps: .8rem;
+
+    --border-radius: .8rem;
+
+    --fontsize-base: 1rem;
+    --fontsize-small: calc( var(--fontsize-base) * .8 );
+    --fontsize-big: calc( var(--fontsize-base) * 1.1 );
+    --fontsize-titel: calc( var(--fontsize-base) * 1.5 );
+    --fontsize-h2: calc( var(--fontsize-base) * 1.5 );
+    --fontsize-h3: calc( var(--fontsize-base) * 1.2 );
+
+}
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0em;
+    padding: 0em;
+    font-family: 'Satoshi';
+
+}
+
+body{
+    background-color: var(--bg-color-infoboard-drk);
+    overflow: hidden;
+    padding: .8rem .8rem 0 0.8rem ;
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    gap: var(--gaps);
+    grid-template: 
+    "infoboard dashboard" 1fr
+    "infoboard dashboard" 4fr
+    / 1.5fr 8.5fr;
+    
+}
+
+
+/* =========================================
+    Infoboard
+========================================= */
+
+.infoboard{
+    grid-area: infoboard;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 0.8rem;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+
+    /* Content infoboard */
+
+    .content-infoboard{
+        padding: 1rem;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        h1{
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: .2rem;
+
+            padding: 1rem 0rem 2rem 0rem;
+        }
+
+        ul{
+            display: flex;
+            flex-direction: column;
+
+            li{
+                padding: 2rem 0rem;
+                list-style-type: none;
+                border-bottom: solid var(--border-color-drk) 1px;
+
+                &:last-of-type{
+                    border-bottom: none;
+                }
+
+                p{
+                    padding: 0 .3rem;
+                    line-height: 1.5rem;
+
+                    &:first-child{
+                        color: var(--font-muted-drk);
+                        font-size: .8rem;
+                    }
+
+                    &:last-child{
+                        font-weight: 400;
+                        font-size: var(--fontsize-base);
+                    }
+                }
+                
+            }
+        }
+    }
+
+    /* =========================================
+    Profiel label
+    ========================================= */
+
+    .profile-label{
+        border: var(--border-color-drk) solid 1px;
+        background-color: var(--bg-color-infoboard-drk);
+        filter: drop-shadow(0px 0px 5px var(--bg-color-dashboard-drk));
+        
+        padding: .75rem;
+        border-radius: var(--border-radius);
+        height: fit-content;
+
+        display: flex;
+        align-items: center;
+        gap: .75em;
+        
+        /* Profiel foto kader */
+        .profile-picture{
+            width: 3rem;
+            height: 3rem;
+            overflow: hidden;
+
+            position: relative;
+            
+            /* Profiel foto zelf */
+            img{
+                width: 100%;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                aspect-ratio: 1/1;
+            
+                border-radius: 50%;
+                border: solid var(--border-color-drk) 1px;
+            }
+        }
+
+        .profile-username{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            > p:nth-child(2){
+                color: var(--font-muted-drk);
+                font-size: var(--fontsize-small);
+            }
+        }
+    }
+}
+
+
+/* =========================================
+   Dashboard
+========================================= */
+
+.dashboard{
+    grid-area: dashboard;
+
+    background-color: var(--bg-color-dashboard-drk);
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    border: solid var(--border-color-drk) 1px;
+
+
+    border-radius: var(--border-radius)  var(--border-radius) 0 0;
+
+    display: grid;
+    gap: var(--gaps);
+    grid-template:         
+    "weekly-nerds projects" 50%       
+    "learning-goals projects" 1fr
+    / 3fr 5fr;
+
+
+    /* =========================================
+        Weekly nerds
+    ========================================= */
+    .weekly-nerds{
+        grid-area: weekly-nerds;
+        
+        display: flex;
+        flex-direction: column;
+        
+        h2{
+            padding: 1rem;
+            /* border-bottom: solid var(--border-color-drk) 1px; */
+        }
+        
+        ul{
+            border: solid var(--border-color-drk) 1px;
+            border-radius: calc( var(--border-radius));
+            overflow-y: scroll;
+            li{
+                list-style-type: none;
+                border-bottom: solid var(--border-color-drk) 1px;
+
+                a{
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    text-decoration: none;
+                    width: 100%;
+                    height: 100%;
+                    padding: 1rem 1rem;
+
+                    img{
+                        height: 3rem;
+                        border-radius: 50%;
+                        border: solid var(--border-color-drk) 1px;
+                    }
+    
+                    &:last-of-type{
+                        border-bottom: none;
+                    }
+
+                    p{
+                        color: var(--font-color-drk);
+                        line-height: 1.7rem;
+
+                        &:nth-of-type(1){
+                            font-size: var(--fontsize-h3);
+                            color: var(--font-color-drk);
+                        }
+                        &:nth-of-type(2){
+                            font-size: var(--fontsize-base);
+                            color: var(--font-muted-drk);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .learning-goals{
+        grid-area: learning-goals;
+        /* background-color: yellow; */
+        border-radius: calc( var(--border-radius));
+        border: solid var(--border-color-drk) 1px;
+
+        padding: 1rem;
+    }
+
+    .projects{
+        grid-area: projects;
+        /* background-color: green; */
+        border-radius: calc( var(--border-radius));
+        border: solid var(--border-color-drk) 1px;
+
+        padding: 1rem;
+    }
+
+    h2{
+        font-size: var(--fontsize-h2);
+        font-weight: 400;
+    }
+
+}

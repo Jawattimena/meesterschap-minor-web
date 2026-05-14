@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style-weekly-nerds.css">
+    <title>Minder JavaScript, meer web</title>
+</head>
+    <body>
+    
+        <header>
+            <div class="meta-top">
+                <p class="meta">
+                    WEEKLY NERD: Killian Valkhof · ontwikkelaar van Polypane
+                </p>
+                <p class="meta">04-02-2026 </p>
+            </div>
+            <h1>Minder JavaScript,<br> meer web</h1>
+        </header>
+    
+        <p class="intro">
+            Als webontwikkelaars grijpen we vaak automatisch naar JavaScript. Een animatie? JavaScript.
+            Een accordion? JavaScript. Een popup? JavaScript. Maar volgens Killian Valkhof doen we
+            onszelf — en onze gebruikers — daarmee vaak tekort. Het web kan namelijk veel meer
+            uit zichzelf dan we denken.
+        </p>
+    
+        <section>
+            <h2>The Rule of Least Power</h2>
+            <p>
+                Een belangrijk principe dat Killian aanhaalt is <strong>The Rule of Least Power</strong>.
+                Deze regel stelt dat je altijd de <em>minst krachtige technologie</em> moet gebruiken
+                die je probleem kan oplossen.
+            </p>
+            <div class="rule-diagram">
+                HTML <span>→</span> CSS <span>→</span> JavaScript
+            </div>
+            <ul>
+                <li><strong>HTML</strong> is het minst krachtig, maar ook het meest robuust.</li>
+                <li><strong>CSS</strong> voegt presentatie en interactie toe.</li>
+                <li><strong>JavaScript</strong> is het krachtigst — en daarmee ook het zwaarst.</li>
+            </ul>
+            <p>Hoe krachtiger de technologie, hoe meer werk de browser moet doen: JavaScript moet worden gedownload, geparsed, uitgevoerd en onderhouden. Als iets met HTML of CSS kan, <strong>moet je daar beginnen</strong>.</p>
+        </section>
+    
+        <section>
+            <h2>Het web is backwards compatible</h2>
+            <p>
+                Een van de meest unieke eigenschappen van het web is dat het backwards compatible is.
+                De allereerste website werkt vandaag de dag nog steeds.
+            </p>
+            <ul>
+                <li>Kennis van HTML raakt nooit echt verouderd</li>
+                <li>Oude technieken blijven functioneren</li>
+                <li>Nieuwe features bouwen voort op bestaande standaarden</li>
+            </ul>
+            <p>
+                Tegelijkertijd zijn er tegenwoordig betere, snellere en efficiëntere manieren om
+                dingen te bouwen — vooral als je moderne HTML en CSS gebruikt.
+            </p>
+        </section>
+    
+        <section>
+            <h2>JSX is gewoon HTML (met een omweg)</h2>
+            <p>
+                JSX voelt voor veel developers als iets nieuws, maar in essentie is het een dialect
+                van HTML. Het beschrijft structuur — alleen via JavaScript. Dat maakt het makkelijk om:
+            </p>
+            <ul>
+                <li>semantiek te vergeten</li>
+                <li>native browsergedrag te overschrijven</li>
+                <li>oplossingen opnieuw te bouwen die de browser al biedt</li>
+            </ul>
+            <p>Door eerst na te denken in HTML, bouw je automatisch toegankelijker en duurzamer.</p>
+        </section>
+    
+        <section>
+            <h2>Native oplossingen: accordions zonder JavaScript</h2>
+            <p>
+                Een klassiek voorbeeld is het accordion-menu. Vaak gebouwd met JavaScript, terwijl
+                HTML hier al een perfect element voor heeft:
+            </p>
+            <pre><code>&lt;details&gt;  
+    &lt;summary&gt;Meer informatie&lt;/summary&gt;
+    &lt;p&gt;Dit is de verborgen content.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+            <ul>
+                <li>Toegankelijk met toetsenbord en screenreaders</li>
+                <li>Geen JavaScript nodig</li>
+                <li>Werkt in alle moderne browsers</li>
+            </ul>
+            <p>Het pijltje dat je ziet bij het openklappen heet de <strong>marker</strong>. Ook die kun je gewoon stylen of vervangen met CSS.</p>
+        </section>
+    
+        <section>
+            <h2>Appearance: none — volledige controle over styling</h2>
+            <p>Form-elementen worden standaard gestyled door het besturingssysteem. Met:</p>
+            <pre><code>appearance: none;</code></pre>
+            <p>verwijder je die OS-styling en krijg je volledige controle.</p>
+            <ul>
+                <li><code>display: none</code> → het element verdwijnt volledig</li>
+                <li><code>appearance: none</code> → het element blijft bestaan en werken, maar zonder standaard uiterlijk</li>
+            </ul>
+            <p>Ideaal voor custom buttons, selects, checkboxes en radio buttons.</p>
+        </section>
+    
+        <section>
+            <h2>Animaties met respect voor de gebruiker</h2>
+            <p>Niet iedereen kan goed tegen animaties. Daarom bestaat de media query:</p>
+            <pre><code>@media (prefers-reduced-motion: no-preference) {
+      /* animaties hier */
+    }</code></pre>
+            <p>
+                Zo respecteer je gebruikersinstellingen zonder JavaScript. CSS kan niet alleen
+                animeren, maar ook <strong>rekening houden met persoonlijke voorkeuren</strong>.
+            </p>
+        </section>
+    
+        <section>
+            <h2>In-page transitions zonder JavaScript</h2>
+            <p>
+                Veel interacties binnen een pagina — hover-effecten, focus states, open- en dichtklappen —
+                kunnen volledig met CSS. Dat is sneller, eenvoudiger en beter te onderhouden.
+                JavaScript is hier vaak onnodig complex.
+            </p>
+        </section>
+    
+        <section>
+            <h2>UX-details doen ertoe</h2>
+            <div class="tip">
+                <strong>Gebruik de handcursor alleen voor links.</strong><br>
+                De browser geeft hiermee een verwachting aan. Als je die verwachting breekt,
+                wordt je interface verwarrender — hoe klein het detail ook lijkt.
+            </div>
+        </section>
+    
+        <section>
+            <h2>Dialogs in plaats van alerts</h2>
+            <p>In plaats van <code>alert()</code> en <code>prompt()</code> bestaat nu het native <code>&lt;dialog&gt;</code>-element:</p>
+            <pre><code>&lt;dialog open&gt;
+      &lt;p&gt;Weet je het zeker?&lt;/p&gt;
+      &lt;button&gt;OK&lt;/button&gt;
+    &lt;/dialog&gt;</code></pre>
+            <ul>
+                <li>Beter te stylen</li>
+                <li>Toegankelijker</li>
+                <li>Onderdeel van HTML zelf</li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>Bijblijven met het moderne web: Baseline</h2>
+            <p>Het web ontwikkelt zich snel. Om bij te houden wat veilig te gebruiken is, bestaat <strong>Baseline</strong>.</p>
+            <div class="baseline-grid">
+                <div class="baseline-card">
+                    <h3>Newly available</h3>
+                    <p>Ondersteund door alle core browsers. Interoperabel en bruikbaar.</p>
+                </div>
+                <div class="baseline-card">
+                    <h3>Widely available</h3>
+                    <p>30 maanden later. Geschikt voor de meeste websites zonder support-zorgen.</p>
+                </div>
+            </div>
+            <p>Baseline helpt developers om <strong>moderne features te gebruiken zonder te gokken op browser support</strong>.</p>
+        </section>
+    
+        <section class="conclusion">
+            <h2>Conclusie</h2>
+            <ul>
+                <li>Het web is al heel capabel</li>
+                <li>HTML en CSS verdienen een grotere rol</li>
+                <li>JavaScript is waardevol, maar niet altijd nodig</li>
+                <li>Minder code betekent vaak betere performance, toegankelijkheid en onderhoud</li>
+            </ul>
+            <blockquote>
+                Bouw met het web mee — niet tegen het web in.
+            </blockquote>
+        </section>
+    
+        <div class="resources">
+            <h3>Links</h3>
+            <a href="https://web.dev/" target="_blank" rel="noopener">web.dev — Web platform documentatie</a>
+            <a href="https://caniuse.com/" target="_blank" rel="noopener">caniuse.com — Browser support checker</a>
+        </div>
+    
+        <footer>
+            <p class="meta">Schrijver: Joshua Wattimena </p>
+        </footer>
+    
+    </div>
+    
+    
+</body>
+</html>

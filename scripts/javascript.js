@@ -53,27 +53,43 @@ requestAnimationFrame(() => {
     }
 
     function snapToNearest() {
-        // Vind het item waarvan het midden het dichtst bij screenCenter ligt
+        const carouselRect = carousel.getBoundingClientRect();
+        const screenCenter = carouselRect.height / 2;
+    
+        let bestItem = null;
         let bestDist = Infinity;
-        let bestOffsetY = offsetY;
-
-        // Zoek over alle 3 sets
-        for (let set = -1; set <= 2; set++) {
-            itemMetas.forEach(meta => {
-                const itemScreenCenter = meta.center + offsetY + set * TOTAL;
-                const dist = Math.abs(itemScreenCenter - screenCenter);
-                if (dist < bestDist) {
-                    bestDist = dist;
-                    bestOffsetY = offsetY - (itemScreenCenter - screenCenter);
-                }
-            });
-        }
-
-        offsetY = bestOffsetY;
+        let bestOffset = offsetY;
+    
+        Array.from(track.children).forEach(item => {
+            const rect = item.getBoundingClientRect();
+    
+            // midden van item t.o.v. carousel
+            const itemCenter = rect.top - carouselRect.top + rect.height / 2;
+    
+            const dist = Math.abs(itemCenter - screenCenter);
+    
+            if (dist < bestDist) {
+                bestDist = dist;
+                bestItem = item;
+            }
+        });
+    
+        if (!bestItem) return;
+    
+        const rect = bestItem.getBoundingClientRect();
+        const itemCenter = rect.top - carouselRect.top + rect.height / 2;
+    
+        // bereken nieuwe offset zodat item exact in het midden komt
+        offsetY += (screenCenter - itemCenter);
+    
         clamp();
+    
         track.style.transition = 'transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         render();
-        setTimeout(() => { track.style.transition = ''; }, 280);
+    
+        setTimeout(() => {
+            track.style.transition = '';
+        }, 280);
     }
 
     render();
@@ -131,4 +147,45 @@ requestAnimationFrame(() => {
         clearTimeout(wheelTimer);
         wheelTimer = setTimeout(snapToNearest, 120);
     }, { passive: false });
+});
+
+/* =========================================
+   PROJECT SLIDER NAVIGATION
+========================================= */
+
+const projectCards = document.querySelectorAll('.project-card');
+const navDots = document.querySelectorAll('.nav-dot');
+
+const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        // Alleen uitvoeren als kaart zichtbaar is
+        if(entry.isIntersecting){
+
+            // huidige actieve dot verwijderen
+            navDots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+
+            // juiste dot zoeken
+            const activeDot = document.querySelector(
+                `.nav-dot[data-project="${entry.target.id}"]`
+            );
+
+            // nieuwe active toevoegen
+            if(activeDot){
+                activeDot.classList.add('active');
+            }
+        }
+    });
+
+}, {
+    root: document.querySelector('.projects-track'),
+    threshold: 0.6
+});
+
+/* Observe alle project cards */
+projectCards.forEach(card => {
+    observer.observe(card);
 });

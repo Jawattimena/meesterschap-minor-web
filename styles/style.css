@@ -334,7 +334,7 @@ h1{
                             }
 
                             .titel-weekly-nerd{
-                                font-size: 2rem;
+                                font-size: calc(var(--fontsize-base) * 2);
                                 color: var(--font-color-drk);
                                 font-weight: 400;
                                 font-family: "Clash-Display";
@@ -521,7 +521,7 @@ h1{
         scrollbar-width: thin;
 
         h3{
-            font-size: calc(var(--fontsize-h3) * 2) ;
+            font-size: calc(var(--fontsize-h3) * 2);
             margin-top: 1rem;
             font-family: "Clash-Display";
             font-weight: 400;
@@ -757,7 +757,7 @@ overflow: hidden;
 
     font-weight: 400;
 
-    font-size: calc(var(--fontsize-h3) * 1.5);
+    font-size: calc(var(--fontsize-h3) * 2);
 }
 
 .project-description{

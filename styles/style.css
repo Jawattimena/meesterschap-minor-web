@@ -13,15 +13,12 @@
     src: url(/fonts/ClashDisplay-Variable.ttf);
 }
 
-/* MARK: hallo */
+/* MARK: HALLO */
 :root{
     color-scheme: light dark;
 
     /* colors */
-    --font-color-lght: #000;
-    
-    
-    --font-color-drk: #fff;
+    --font-color: light-dark(#000, #fff);
     --font-muted-drk: #888;
     
     /* --bg-color-drk: linear-gradient(293deg,rgb(0, 2, 8) 0%, rgb(13, 0, 16) 18%, rgb(0, 2, 20) 70%, rgb(23, 1, 43) 100%); */
@@ -81,7 +78,7 @@ h1{
 }
 
 /* =========================================
-    Infoboard
+    MARK: INFOBOARD
 ========================================= */
 
 .infoboard{
@@ -105,7 +102,7 @@ h1{
         
 
         ul{
-
+            
             li{
                 padding: 0rem var(--gaps) var(--gaps) var(--gaps);
                 list-style-type: none;
@@ -136,11 +133,11 @@ h1{
     }
 
     /* =========================================
-    Profiel label
+      MARK: PROFIEL LABEL
     ========================================= */
     a{
         text-decoration: none;
-        color: var(--font-color-drk);
+        color: var(--font-color);
     }
 
     .profile-label{
@@ -195,7 +192,7 @@ h1{
 
 
 /* =========================================
-   Dashboard
+   MARK: DASHBOARD
 ========================================= */
 
 .dashboard{
@@ -234,9 +231,16 @@ h1{
         padding: calc(var(--gaps) * .5) 0rem calc(var(--gaps) * 1) 0.4rem;
     }
     /* =========================================
-        Weekly nerds
+        MARK: WEEKLY NERDS
     ========================================= */
-    .weekly-nerds{
+    .fade-top, .fade-bottom {
+    position: absolute;
+    left: 0; right: 0;
+    height: 2rem;
+    z-index: 2;
+    }
+
+    .weekly-nerds-dashboard{
         grid-area: weekly-nerds;
         
         display: flex;
@@ -246,14 +250,6 @@ h1{
             position: relative;
             overflow: hidden;
             flex: 1;
-
-            .fade-top,
-            .fade-bottom {
-            position: absolute;
-            left: 0; right: 0;
-            height: 2rem;
-            z-index: 2;
-            }
             
             .fade-top {
                 top: 0;
@@ -268,9 +264,9 @@ h1{
         
         
             ul{
-                overflow-y: scroll;
+                overflow-y: auto;
                 overflow-x: hidden;
-                /* scroll-snap-type: y mandatory; */
+                scroll-snap-type: y mandatory;
                 scrollbar-color: transparent transparent;
                 scrollbar-width: thin;
                 
@@ -278,144 +274,138 @@ h1{
                 flex-direction: column;
                 gap: .3rem;
                 border-radius: var(--border-radius);
-                padding: 3rem 0rem;
+                padding: 5rem 0rem;
 
                 display: flex;
                 flex-direction: column;
                 position: absolute;
-                top: 0; left: 0; right: 0;
+                inset: 0;
                 
                 
-                li{
-                    /* scroll-snap-align: center; */
-                    list-style-type: none;
-                    border: solid var(--border-color-drk) 1px;
-                    background-color: var(--bg-color-drk);
-                    border-radius: var(--border-radius);
-                    height: fit-content;
-
-                    &:last-of-type{
-                        border-bottom: none;
-                    }
-
-                    a{
-                        position: relative;
-                        display: flex;
-                        align-items: start;
-                        text-decoration: none;
-                        gap: var(--gaps);
-                        width: 100%;
-                        height: 100%;
-                        padding: var(--gaps);
-                        
-                        > div{
                 
-                            display: flex;
-                            flex-direction: column;
-                            align-items: start;
-                            justify-content: start;
-                            width: 100%;
-                            gap: var(--gaps);
-
-                            .date-weekly-nerds{
-                                font-size: var(--fontsize-small);
-                                color: var(--font-muted-drk);
-                                width: fit-content;
-                            }
-
-                            
-                            
-                            .purple-label{
-                                color: rgb(158, 0, 202);
-                                background-color: rgb(34, 9, 42);
-                                height: fit-content;
-                                /* border: rgb(158, 0, 202) solid 1px; */
-                            }
-
-                            .titel-weekly-nerd{
-                                font-size: calc(var(--fontsize-base) * 2);
-                                color: var(--font-color-drk);
-                                font-weight: 400;
-                                font-family: "Clash-Display";
-                                border-bottom: var(--border-color-drk) solid 1px;
-                                padding-bottom: var(--gaps);
-                                width: 100%;
-                            }
-                            
-                            > div{
-                                display: flex;
-                                justify-content: space-between;
-                                height: 2rem;
-                                width: 100%;
-                                align-items: center;
-                                
-
-                                .labels-weekly-nerds{
-                                    font-size: var(--fontsize-small);
-                                    padding: .7rem .5rem;
-                                    border-radius: calc( var(--border-radius) / 2);
-                                    line-height: 0rem;
-                                }
-
-                                > div{
-                                    display: flex;
-                                    flex-direction: row;
-                                    align-items: center;
-                                    gap: var(--gaps);
-
-                                    height: 1.8rem;
-                                    
-                                    img{
-                                        height: 100%;
-                                        aspect-ratio: 1/1;
-                                        object-fit: cover;
-                                        border-radius: 50%;
-                                        border: solid var(--border-color-drk) 1px;
-                                    }
-
-                                    .name-weekly-nerd{
-                                        font-size: var(--fontsize-base);
-                                        color: var(--font-muted-drk);
-                                    }
-
-                                }
-
-                            }
-
-                        }
-                        
-                        &:last-of-type{
-                            border-bottom: none;
-                        }
-
-                        /* .content-weekly-nerd-card {
-                            width: 100%;
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: space-between;
-
-                            > div{
-                                display: flex;
-                                flex-direction: row;
-                                justify-content: space-between;
-                            }
-                        } */
-                    }
-                }
             }
         }
     }
 
 
-    .projects{
-        grid-area: projects;
+    .weekly-nerd-card{
+        scroll-snap-align: center;
+        list-style-type: none;
+        border: solid var(--border-color-drk) 1px;
+        background-color: var(--bg-color-drk);
+        border-radius: var(--border-radius);
+        height: fit-content;
+
+        opacity: 0.4;
+        transform: scale(0.95);
+        transition: 0.3s ease;
+
+        &.active{
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        &:last-of-type{
+            border-bottom: none;
+        }
+
+        a{
+            position: relative;
+            display: flex;
+            align-items: start;
+            text-decoration: none;
+            gap: var(--gaps);
+            width: 100%;
+            height: 100%;
+            padding: var(--gaps);
+            
+            > div{
     
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: start;
+                width: 100%;
+                gap: var(--gaps);
+
+                .date-weekly-nerds{
+                    font-size: var(--fontsize-small);
+                    color: var(--font-muted-drk);
+                    width: fit-content;
+                }
+
+                
+                
+                .purple-label{
+                    color: rgb(158, 0, 202);
+                    background-color: rgb(34, 9, 42);
+                    height: fit-content;
+                    /* border: rgb(158, 0, 202) solid 1px; */
+                }
+
+                .titel-weekly-nerd{
+                    font-size: calc(var(--fontsize-base) * 2);
+                    color: var(--font-color);
+                    font-weight: 400;
+                    font-family: "Clash-Display";
+                    border-bottom: var(--border-color-drk) solid 1px;
+                    padding-bottom: var(--gaps);
+                    width: 100%;
+                }
+                
+                > div{
+                    display: flex;
+                    justify-content: space-between;
+                    height: 2rem;
+                    width: 100%;
+                    align-items: center;
+                    
+
+                    .labels-weekly-nerds{
+                        font-size: var(--fontsize-small);
+                        padding: .7rem .5rem;
+                        border-radius: calc( var(--border-radius) / 2);
+                        line-height: 0rem;
+                    }
+
+                    > div{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: var(--gaps);
+
+                        height: 1.8rem;
+                        
+                        img{
+                            flex: 0 0 1.8rem;
+                            width: 1.8rem;
+                            height: 1.8rem;
+                            aspect-ratio: 1/1;
+                            object-fit: cover;
+                            border-radius: 50%;
+                            border: solid var(--border-color-drk) 1px;
+                        }
+
+                        .name-weekly-nerd{
+                            font-size: var(--fontsize-base);
+                            color: var(--font-muted-drk);
+                        }
+
+                    }
+
+                }
+
+            }
+            
+            &:last-of-type{
+                border-bottom: none;
+            }
+        }
     }
 }
-    /* MARK: hallo */
 
  /* =========================================
-        Leerdoelen
+     MARK: LEERDOELEN
     ========================================= */
 
 /* Toon de juiste box op basis van welke radio checked is */
@@ -474,7 +464,7 @@ h1{
     
     /* Actieve tab styling */
     &:has(input:checked) {
-    color: var(--font-color-drk);
+    color: var(--font-color);
     background-color: var(--bg-color-drk);
     box-shadow: none;
     border: solid var(--border-color-drk) 1px;
@@ -488,7 +478,7 @@ h1{
 }
 
 .tab.active {
-    color: var(--font-color-drk);
+    color: var(--font-color);
     background-color: var(--bg-color-drk);
     z-index: 1;
 
@@ -507,18 +497,40 @@ h1{
     padding: var(--gaps);
     flex: 1;
     display: none;
+    position: relative;
+    max-height: 33rem;
+    
 
-    > div{
+    .fade-top,
+    .fade-bottom {
+    position: absolute;
+    left: 0; right: 0;
+    height: 3rem;
+    z-index: 2;
+    }
+
+    .fade-top {
+        top: var(--gaps);
+        background: linear-gradient(to bottom, var(--bg-color-drk), transparent);
+    }
+
+    .fade-bottom {
+        bottom: var(--gaps);
+        background: linear-gradient(to top, var(--bg-color-drk), transparent);
+    }
+
+    > article{
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        height: 30rem;
+        height: 30.5rem;
         
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: auto;
         
         scrollbar-color: transparent transparent;
         scrollbar-width: thin;
+        border-radius: var(--border-radius);
 
         h3{
             font-size: calc(var(--fontsize-h3) * 2);
@@ -529,7 +541,7 @@ h1{
 
         h4{
             font-size: var(--fontsize-h4);
-            color: var(--font-color-drk);
+            color: var(--font-color);
             font-weight: 500;
             margin-top: 1rem;
         }
@@ -576,7 +588,7 @@ border: 1px solid rgba(54, 54, 54, 0.16);
   
 
 /* =========================================
-    Projecten
+   MARK: PROJECTEN
 ========================================= */
 
 .projects{
@@ -590,6 +602,11 @@ overflow: hidden;
 
 .projects-header{
     margin-bottom: var(--gaps);
+    z-index: 3; !important
+
+    h2{
+        z-index: 3; !important
+    }
 }
 
 @keyframes recording {
@@ -609,36 +626,65 @@ overflow: hidden;
     }
   }
 
-.projects-grid{
+  .fade-effect{
     display: flex;
     flex-direction: column;
-
-    gap: var(--gaps);
-
-    height: 100%;
-
+    border-radius: var(--border-radius);
+    /* border: 1px solid red; */
+    object-fit: contain;
     overflow: hidden;
-}
+    
+    .fade-left, .fade-right {
+    position: absolute;
+    left: 0; right: 0;
+    width: 3rem;
+    height: 100%;
+    z-index: 2;
+    }
+
+     .fade-left {
+                top: 0;
+                background: linear-gradient(to right, var(--bg-color-dashboard-drk), transparent);
+                justify-self: start;
+            }
+
+    .fade-right {
+        bottom: 0;
+        background: linear-gradient(to left, var(--bg-color-dashboard-drk), transparent);
+        /* background-color: red; */
+        justify-self: end;
+    }
+  }
 
 /* =========================================
-   TRACK
+   MARK: TRACK
 ========================================= */
 
 .projects-track{
+    height: 100%;
     display: flex;
-
-    gap: var(--gaps);
+    gap: calc(var(--gaps) / 2);
+    position: relative;
+    overflow: hidden;
 
     overflow-x: auto;
     overflow-y: hidden;
 
-    scroll-snap-type: x mandatory;
-
+    scroll-snap-type: x proximity;
     scroll-behavior: smooth;
-
+    scroll-snap-stop: always;
     scrollbar-width: none;
+    padding: 0rem calc(var(--gaps) * 2);
+}
 
-    height: 100%;
+.projects-track::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-color-dashboard-drk), transparent);
+}
+
+.projects-track::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-color-dashboard-drk), transparent);
 }
 
 .projects-track::-webkit-scrollbar{
@@ -646,14 +692,14 @@ overflow: hidden;
 }
 
 /* =========================================
-   PROJECT CARD
+  MARK: PROJECT CARD
 ========================================= */
 
 .project-card{
     min-width: 100%;
     max-width: 100%;
 
-    scroll-snap-align: start;
+    scroll-snap-align: center;
 
     background-color: var(--bg-color-drk);
 
@@ -664,17 +710,25 @@ overflow: hidden;
     overflow: hidden;
 
     transition:
-        transform .3s ease,
+        opacity .3s ease,
         border-color .3s ease,
         background-color .3s ease;
 
     display: flex;
     flex-direction: column;
+    
+    opacity: 0.4;
+    filter: brightness(0.7);
+}
+
+.project-card.active {
+    opacity: 1;
+    filter: brightness(1);
 }
 
 
 /* =========================================
-   IFRAME PREVIEW
+   MARK: IFRAME PREVIEW
 ========================================= */
 
 .project-preview{
@@ -682,10 +736,14 @@ overflow: hidden;
     border-radius: var(--border-radius);
     width: 100%;
     height: 30rem;
+    flex-shrink: 0;
 
     overflow: hidden;
 
     border: solid 1px var(--border-color-drk);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     background:
     linear-gradient(
@@ -693,46 +751,12 @@ overflow: hidden;
         rgba(255,255,255,.02),
         rgba(255,255,255,0)
     );
-
-    iframe {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-
-    border: none;
-    transform-origin: top left;
-    background: white;;
-    }
 }
 
 .project-placeholder{
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-    display: block;
-}
-
-.project-preview iframe{
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    border: none;
-
-    transform-origin: top left;
-    
-    opacity: 0;
-    animation: fadeIn .3s forwards;
-}
-
-
-@keyframes fadeIn{
-    to{
-        opacity: 1;
-    }
 }
 
 /* =========================================
@@ -745,9 +769,15 @@ overflow: hidden;
     display: flex;
     flex-direction: column;
 
-    gap: 1rem;
+    /* gap: 1rem; */
 
     flex: 1;
+
+    min-height: 0;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
 .project-type{
@@ -762,35 +792,70 @@ overflow: hidden;
 
 .project-info h3{
     font-family: "Clash-Display";
-
+    
     font-weight: 400;
 
     font-size: calc(var(--fontsize-h3) * 2);
+    margin-bottom: calc(var(--gaps) / 2);
 }
 
 .project-description{
+    flex: 1;
+    position: relative;
+    overflow-y: auto;
 
-    max-height: 15rem;
-    overflow: scroll;
-    p {  
+    min-height: 0;
+
+    padding-bottom: 0;
+    scrollbar-width: none;
+
+    p{
         color: var(--font-muted-drk);
+
         line-height: 1.7rem;
+    }
+
+    .fade-bottom{
+        position: sticky;
+        bottom: 0rem;
+        margin-bottom: -1rem;
+        bottom: 0;
+        background: linear-gradient(to top, var(--bg-color-drk), transparent);
+    }
+    .fade-top{
+        position: sticky;
+        bottom: 0rem;
+        margin-bottom: -1rem;
+        top: 0;
+        background: linear-gradient(to bottom, var(--bg-color-drk), transparent);
     }
 }
 
 /* =========================================
-   BUTTONS
+   MARK: BUTTONS
 ========================================= */
 
 .project-links{
+    position: sticky;
+
+    bottom: 0;
+
     display: flex;
+
     gap: .6rem;
 
-    margin-top: auto;
+    padding-top: var(--gaps);
+
+    background-color: var(--bg-color-drk);
+
+    border-top: solid 1px var(--border-color-drk);
+
+    z-index: 2;
+
     a{
         text-decoration: none;
     
-        color: var(--font-color-drk);
+        color: var(--font-color);
     
         border: solid 1px var(--border-color-drk);
     
@@ -799,7 +864,7 @@ overflow: hidden;
         padding: .8rem 1rem;
     
         border-radius: calc(var(--border-radius) / 1.5);
-    
+
         transition:
             background-color .2s ease,
             border-color .2s ease,
@@ -813,12 +878,11 @@ overflow: hidden;
             transform: translateY(-2px);
         }
     }
-    
 }
 
 
 /* =========================================
-   PROJECT NAVIGATION
+   MARK: PROJECT NAVIGATION
 ========================================= */
 
 .projects-navigation{
@@ -826,14 +890,16 @@ overflow: hidden;
     justify-content: center;
     align-items: center;
     background-color: var(--bg-color-drk);
-    gap: .8rem;
+    gap: var(--gaps);
     border: var(--border-color-drk) solid 1px;
     border-radius: var(--border-radius);
     padding: var(--gaps);
+    margin-top: calc(var(--gaps) / 2);
+    height: 1rem;
 }
 
 /* =========================================
-   DOT
+   MARK: DOT
 ========================================= */
 
 .nav-dot{
@@ -870,7 +936,7 @@ overflow: hidden;
 }
 
 /* =========================================
-   TOOLTIP
+   MARK: TOOLTIP
 ========================================= */
 
 .nav-dot span{
@@ -891,7 +957,7 @@ overflow: hidden;
 
     border-radius: calc(var(--border-radius) / 1.5);
 
-    color: var(--font-color-drk);
+    color: var(--font-color);
 
     font-size: var(--fontsize-small);
 

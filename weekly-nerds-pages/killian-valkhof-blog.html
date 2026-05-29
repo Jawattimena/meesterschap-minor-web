@@ -10,8 +10,9 @@
     
         <header>
             <div class="meta-top">
+                <button onclick="history.back()">Terug</button>
                 <p class="meta">
-                    WEEKLY NERD: Killian Valkhof · ontwikkelaar van Polypane
+                    Killian Valkhof · Ontwikkelaar van Polypane
                 </p>
                 <p class="meta">04-02-2026 </p>
             </div>
@@ -21,12 +22,12 @@
         <p class="intro">
             Als webontwikkelaars grijpen we vaak automatisch naar JavaScript. Een animatie? JavaScript.
             Een accordion? JavaScript. Een popup? JavaScript. Maar volgens Killian Valkhof doen we
-            onszelf — en onze gebruikers — daarmee vaak tekort. Het web kan namelijk veel meer
+            onszelf en onze gebruikers daarmee vaak tekort. Het web kan namelijk veel meer
             uit zichzelf dan we denken.
         </p>
     
+        <h2>The Rule of Least Power</h2>
         <section>
-            <h2>The Rule of Least Power</h2>
             <p>
                 Een belangrijk principe dat Killian aanhaalt is <strong>The Rule of Least Power</strong>.
                 Deze regel stelt dat je altijd de <em>minst krachtige technologie</em> moet gebruiken
@@ -38,13 +39,13 @@
             <ul>
                 <li><strong>HTML</strong> is het minst krachtig, maar ook het meest robuust.</li>
                 <li><strong>CSS</strong> voegt presentatie en interactie toe.</li>
-                <li><strong>JavaScript</strong> is het krachtigst — en daarmee ook het zwaarst.</li>
+                <li><strong>JavaScript</strong> is het krachtigst en daarmee ook het zwaarst.</li>
             </ul>
             <p>Hoe krachtiger de technologie, hoe meer werk de browser moet doen: JavaScript moet worden gedownload, geparsed, uitgevoerd en onderhouden. Als iets met HTML of CSS kan, <strong>moet je daar beginnen</strong>.</p>
         </section>
     
+        <h2>Het web is backwards compatible</h2>
         <section>
-            <h2>Het web is backwards compatible</h2>
             <p>
                 Een van de meest unieke eigenschappen van het web is dat het backwards compatible is.
                 De allereerste website werkt vandaag de dag nog steeds.
@@ -56,15 +57,15 @@
             </ul>
             <p>
                 Tegelijkertijd zijn er tegenwoordig betere, snellere en efficiëntere manieren om
-                dingen te bouwen — vooral als je moderne HTML en CSS gebruikt.
+                dingen te bouwen vooral als je moderne HTML en CSS gebruikt.
             </p>
         </section>
     
+        <h2>JSX is gewoon HTML (met een omweg)</h2>
         <section>
-            <h2>JSX is gewoon HTML (met een omweg)</h2>
             <p>
                 JSX voelt voor veel developers als iets nieuws, maar in essentie is het een dialect
-                van HTML. Het beschrijft structuur — alleen via JavaScript. Dat maakt het makkelijk om:
+                van HTML. Het beschrijft structuur alleen via JavaScript. Dat maakt het makkelijk om:
             </p>
             <ul>
                 <li>semantiek te vergeten</li>
@@ -74,8 +75,8 @@
             <p>Door eerst na te denken in HTML, bouw je automatisch toegankelijker en duurzamer.</p>
         </section>
     
+        <h2>Native oplossingen: accordions zonder JavaScript</h2>
         <section>
-            <h2>Native oplossingen: accordions zonder JavaScript</h2>
             <p>
                 Een klassiek voorbeeld is het accordion-menu. Vaak gebouwd met JavaScript, terwijl
                 HTML hier al een perfect element voor heeft:
@@ -92,8 +93,8 @@
             <p>Het pijltje dat je ziet bij het openklappen heet de <strong>marker</strong>. Ook die kun je gewoon stylen of vervangen met CSS.</p>
         </section>
     
+        <h2>Appearance: none — volledige controle over styling</h2>
         <section>
-            <h2>Appearance: none — volledige controle over styling</h2>
             <p>Form-elementen worden standaard gestyled door het besturingssysteem. Met:</p>
             <pre><code>appearance: none;</code></pre>
             <p>verwijder je die OS-styling en krijg je volledige controle.</p>
@@ -104,8 +105,8 @@
             <p>Ideaal voor custom buttons, selects, checkboxes en radio buttons.</p>
         </section>
     
+        <h2>Animaties met respect voor de gebruiker</h2>
         <section>
-            <h2>Animaties met respect voor de gebruiker</h2>
             <p>Niet iedereen kan goed tegen animaties. Daarom bestaat de media query:</p>
             <pre><code>@media (prefers-reduced-motion: no-preference) {
       /* animaties hier */
@@ -116,28 +117,28 @@
             </p>
         </section>
     
+        <h2>In-page transitions zonder JavaScript</h2>
         <section>
-            <h2>In-page transitions zonder JavaScript</h2>
             <p>
-                Veel interacties binnen een pagina — hover-effecten, focus states, open- en dichtklappen —
+                Veel interacties binnen een pagina hover-effecten, focus states, open- en dichtklappen
                 kunnen volledig met CSS. Dat is sneller, eenvoudiger en beter te onderhouden.
                 JavaScript is hier vaak onnodig complex.
             </p>
         </section>
     
+        <h2>UX-details doen ertoe</h2>
         <section>
-            <h2>UX-details doen ertoe</h2>
             <div class="tip">
                 <strong>Gebruik de handcursor alleen voor links.</strong><br>
                 De browser geeft hiermee een verwachting aan. Als je die verwachting breekt,
-                wordt je interface verwarrender — hoe klein het detail ook lijkt.
+                wordt je interface verwarrender hoe klein het detail ook lijkt.
             </div>
         </section>
     
+        <h2>Dialogs in plaats van alerts</h2>
         <section>
-            <h2>Dialogs in plaats van alerts</h2>
             <p>In plaats van <code>alert()</code> en <code>prompt()</code> bestaat nu het native <code>&lt;dialog&gt;</code>-element:</p>
-            <pre><code>&lt;dialog open&gt;
+            <pre><code>   &lt;dialog open&gt;
       &lt;p&gt;Weet je het zeker?&lt;/p&gt;
       &lt;button&gt;OK&lt;/button&gt;
     &lt;/dialog&gt;</code></pre>
@@ -148,8 +149,8 @@
             </ul>
         </section>
     
+        <h2>Bijblijven met het moderne web: Baseline</h2>
         <section>
-            <h2>Bijblijven met het moderne web: Baseline</h2>
             <p>Het web ontwikkelt zich snel. Om bij te houden wat veilig te gebruiken is, bestaat <strong>Baseline</strong>.</p>
             <div class="baseline-grid">
                 <div class="baseline-card">

@@ -26,6 +26,19 @@
     --bg-color: light-dark(#f5f7fb, #0f0f11);
     --bg-color-dashboard: light-dark(#ffffff, #080808);
     --border-color: light-dark(#d6dde7, #1a1a1a);
+    --accent-color: light-dark(#6d28d9, #8f5cff);
+    --accent-label-color: light-dark(#7c3aed, #9e00ca);
+    --accent-label-background: light-dark(#efe7ff, #22092a);
+    --surface-highlight-color: light-dark(rgba(15, 23, 42, 0.05), rgba(255,255,255,0.02));
+    --surface-shadow-color: light-dark(rgba(129, 144, 166, 0.18), rgba(0, 0, 0, 0.1));
+    --tab-shadow-color: light-dark(rgba(148, 163, 184, 0.28), rgba(0, 0, 0, 0.4));
+    --glass-background: light-dark(rgba(255, 255, 255, 0.72), rgba(29, 29, 29, 0.5));
+    --glass-border-color: light-dark(rgba(214, 221, 231, 0.9), rgba(54, 54, 54, 0.16));
+    --button-hover-background: light-dark(#eef3fb, #1a1a1f);
+    --button-hover-border-color: light-dark(rgba(109, 126, 153, 0.24), rgba(255,255,255,0.08));
+    --nav-dot-active-background: light-dark(#111827, #ffffff);
+    --nav-dot-hover-background: light-dark(#94a3b8, #5d5d66);
+    --tooltip-shadow-color: light-dark(rgba(129, 144, 166, 0.28), rgba(0,0,0,.35));
 
     /* afmetingen */
 
@@ -301,7 +314,7 @@ h1{
         border: solid var(--border-color) 1px;
         filter: var(--dropshadow);
         padding: var(--gaps);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 30px var(--surface-shadow-color);
         
     }
     h2{
@@ -417,10 +430,10 @@ h1{
                 
                 
                 .purple-label{
-                    color: rgb(158, 0, 202);
-                    background-color: rgb(34, 9, 42);
+                    color: var(--accent-label-color);
+                    background-color: var(--accent-label-background);
                     height: fit-content;
-                    /* border: rgb(158, 0, 202) solid 1px; */
+                    /* border: var(--accent-label-color) solid 1px; */
                 }
 
                 .titel-weekly-nerd{
@@ -540,7 +553,7 @@ h1{
     font-size: var(--fontsize-small);
     /* letter-spacing: .1rem; */
     cursor: pointer;
-    box-shadow: inset 0px -4px 8px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0px -4px 8px var(--tab-shadow-color);
     
     /* Actieve tab styling */
     &:has(input:checked) {
@@ -665,10 +678,10 @@ h1{
 
 /* From https://css.glass */
 body .ui-mist-filter {
-background: rgba(29, 29, 29, 0.5);
+background: var(--glass-background);
 border-radius: 16px;
 backdrop-filter: blur(15.6px);
-border: 1px solid rgba(54, 54, 54, 0.16);
+border: 1px solid var(--glass-border-color);
 }
   
 
@@ -833,8 +846,8 @@ overflow: hidden;
     background:
     linear-gradient(
         to bottom,
-        rgba(255,255,255,.02),
-        rgba(255,255,255,0)
+        var(--surface-highlight-color),
+        transparent
     );
 }
 
@@ -866,7 +879,7 @@ overflow: hidden;
 }
 
 .project-type{
-    color: #8f5cff;
+    color: var(--accent-color);
 
     font-size: var(--fontsize-small);
 
@@ -956,9 +969,9 @@ overflow: hidden;
             transform .2s ease;
 
         &:hover{
-            background-color: #1a1a1f;
+            background-color: var(--button-hover-background);
         
-            border-color: rgba(255,255,255,.08);
+            border-color: var(--button-hover-border-color);
         
             transform: translateY(-2px);
         }
@@ -992,10 +1005,10 @@ overflow: hidden;
 .nav-dot{
     width: .7rem;
     height: .7rem;
+    display: block;
 
     border-radius: 50%;
 
-    background-color: var(--bg-color-dashboard);
     border: var(--border-color) solid 1px;
 
     position: relative;
@@ -1008,18 +1021,34 @@ overflow: hidden;
     cursor: pointer;
 }
 
+.nav-dot::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: var(--bg-color-dashboard);
+    transition:
+        transform .2s ease,
+        background-color .2s ease,
+        border-color .2s ease;
+}
+
 /* actieve dot */
 .nav-dot.active{
-    background-color: white;
-
     transform: scale(1.4);
+}
+
+.nav-dot.active::before{
+    background-color: var(--nav-dot-active-background);
 }
 
 /* hover */
 .nav-dot:hover{
-    background-color: #5d5d66;
-
     transform: scale(1.1);
+}
+
+.nav-dot:hover::before{
+    background-color: var(--nav-dot-hover-background);
 }
 
 /* =========================================
@@ -1058,7 +1087,7 @@ overflow: hidden;
         opacity .2s ease,
         transform .2s ease;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    box-shadow: 0 10px 30px var(--tooltip-shadow-color);
 }
 
 /* tooltip pijltje */

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style-weekly-nerds.css">
+    <title>De browser: poort naar het web</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="meta-top">
+            <a href="../index.html" class="back-button">Terug</a>
+            <p class="meta">
+                Peter-Paul Koch · Oppernerd (PPK)
+            </p>
+            <p class="meta">19-02-2026</p>
+        </div>
+
+        <h1>Onder de moterkap van ja browser</h1>
+    </header>
+
+    <p class="intro">
+        Een browser is een programma dat verbinding maakt met het web. Hij haalt websites op via
+        het internet en interpreteert HTML, CSS en JavaScript zodat gebruikers pagina’s kunnen zien
+        en ermee kunnen interacteren.
+    </p>
+
+    <h2>Wat is een browser?</h2>
+    <section>
+        <p>
+            Websites bestaan uit drie belangrijke onderdelen:
+        </p>
+
+        <ul>
+            <li><strong>HTML</strong> bepaalt de structuur van de pagina</li>
+            <li><strong>CSS</strong> verzorgt de vormgeving en layout</li>
+            <li><strong>JavaScript</strong> maakt interactie en dynamiek mogelijk</li>
+        </ul>
+
+        <p>
+            De browser leest deze talen en zet ze om in een visuele en interactieve ervaring.
+        </p>
+    </section>
+
+    <h2>Wat gebeurt er in een browser?</h2>
+    <section>
+        <p>
+            Wanneer je een website opent, gebeurt er onder water enorm veel voordat je daadwerkelijk
+            iets ziet verschijnen.
+        </p>
+
+        <img src="../images/ppk-blog-image.jpg" alt="Schema van browser rendering proces">
+
+        <!-- <h3>1. De parser</h3> -->
+        <!-- <p>
+            Een parser leest HTML en CSS en vertaalt deze code naar een structuur die de browser begrijpt.
+        </p> -->
+        <div class="tip">
+            <strong>🔍 Parser</strong><br> De parser werkt als een intelligente tolk, hij leest je code regel voor regel en zet het om in iets wat de browser kan begrijpen.
+        </div>
+
+        <!-- <h3>2. De DOM en AOM</h3> -->
+<!-- 
+        <ul>
+            <li>
+                <strong>DOM (Document Object Model)</strong><br>
+                Een boomstructuur die de HTML van de pagina representeert.
+            </li>
+
+            <li>
+                <strong>AOM (Accessibility Object Model)</strong><br>
+                Een model speciaal bedoeld voor assistieve technologieën zoals screenreaders.
+            </li>
+        </ul> -->
+
+        <div class="tip-grid">
+            <div class="tip">
+                <strong>🌳 DOM</strong> <br> DOM is als een familie-boom van je HTML, alles is genest en met elkaar verbonden. Dit is wat JavaScript manipuleert!
+            </div>
+
+            <div class="tip">
+                <strong>♿ AOM</strong><br> Het AOM zorgt ervoor dat screenreaders begrijpen wat op de pagina staat. Een goed HTML-structuur = een beter AOM!
+            </div>
+        </div>
+
+        <p>
+            De rendering engine is verantwoordelijk voor het parsen van HTML en CSS en het opbouwen
+            van deze DOM- en AOM-structuren.
+        </p>
+
+        <p>
+            De rendering engine doet dus niet de interface of JavaScript-engine — dat zijn aparte
+            onderdelen van de browser.
+        </p>
+    </section>
+
+    <h2>Rendering engines</h2>
+    <section>
+        <p>
+            Niet elke browser gebruikt dezelfde rendering engine. De grootste en meest gebruikte is
+            <strong>Blink</strong>, afkomstig uit het Chromium-project.
+        </p>
+
+        <p>Andere belangrijke engines zijn:</p>
+
+        <ul>
+            <li><strong>WebKit</strong> — gebruikt door Safari</li>
+            <li><strong>Gecko</strong> — gebruikt door Firefox</li>
+        </ul>
+
+        <p>
+            Omdat veel browsers dezelfde rendering engine gebruiken, krijgen browsers vaak snel
+            dezelfde nieuwe mogelijkheden.
+        </p>
+
+        <p>
+            Er bestaan ook nieuwe onafhankelijke browserprojecten zoals
+            <strong>Flow</strong> en <strong>Ladybird</strong>.
+        </p>
+    </section>
+
+    <h2>JavaScript en de JavaScript-engine</h2>
+    <section>
+        <p>
+            Naast de rendering engine heeft een browser ook een JavaScript-engine nodig.
+            Deze zorgt ervoor dat JavaScript daadwerkelijk uitgevoerd kan worden.
+        </p>
+
+        <p>
+            Niet alle browsers gebruiken dezelfde JavaScript-engine, maar iedere moderne browser
+            heeft er wel één nodig.
+        </p>
+
+        <blockquote>
+            “Browsers are the most hostile development platforms in the world.”
+        </blockquote>
+
+        <p>
+            Deze uitspraak van Douglas Crockford verwijst naar de enorme complexiteit,
+            backward compatibility en verschillen tussen browsers.
+        </p>
+    </section>
+
+    <h2>Render blocking en het laden van JavaScript</h2>
+    <section>
+        <p>
+            JavaScript kan het renderproces blokkeren. Daarom wordt vaak aangeraden om scripts
+            slim te laden.
+        </p>
+
+        <ul>
+            <li>
+                <code>&lt;script src&gt;</code>
+                → voer direct uit en blokkeer parsing
+            </li>
+
+            <li>
+                <code>&lt;script defer src&gt;</code>
+                → voer later uit, na HTML parsing
+            </li>
+
+            <li>
+                <code>&lt;script async src&gt;</code>
+                → laad onafhankelijk zonder render blocking
+            </li>
+        </ul>
+
+        <p>
+            Als JavaScript te vroeg geladen wordt, moet de browser wachten voordat de pagina verder
+            opgebouwd kan worden.
+        </p>
+    </section>
+
+    <h2>Layout en performance</h2>
+    <section>
+        <p>
+            Goede performance begint bij slimme keuzes tijdens het bouwen van een website.
+        </p>
+
+        <ul>
+            <li>Pas op met grote layout-veranderingen</li>
+            <li>Gebruik media queries voor responsive design</li>
+            <li>Maak het niet onnodig ingewikkeld voor de browser</li>
+            <li>Slechte keuzes kunnen performance-problemen veroorzaken</li>
+        </ul>
+
+        <p>
+            Hoe complexer de rendering, hoe meer werk de browser moet doen.
+        </p>
+    </section>
+
+    <h2>Backward compatibility</h2>
+    <section>
+        <p>
+            Browsers zijn extreem gefocust op backward compatibility.
+        </p>
+
+        <blockquote>
+            Als iets ooit in een browser heeft gewerkt, moet het blijven werken.
+        </blockquote>
+
+        <p>
+            Daarom bestaat bijvoorbeeld de <code>&lt;!DOCTYPE html&gt;</code>-declaratie.
+            Deze voorkomt dat browsers in oude “quirks mode” gaan renderen.
+        </p>
+    </section>
+
+    <h2>Iframes en frames</h2>
+    <section>
+        <p>
+            Een <code>&lt;iframe&gt;</code> is een blok binnen een pagina waarin een andere webpagina
+            geladen kan worden.
+        </p>
+
+        <p>
+            Deze techniek stamt af van oudere technieken zoals framesets.
+        </p>
+    </section>
+
+    <h2>De geschiedenis van de browser</h2>
+    <section>
+        <p>
+            De ontwikkeling van browsers ging enorm snel.
+        </p>
+
+        <ul>
+            <li><strong>WorldWideWeb</strong> — de eerste browser van Tim Berners-Lee</li>
+            <li><strong>Mosaic</strong> (1993) — de eerste visuele browser</li>
+            <li><strong>Netscape Navigator</strong> (1994)</li>
+            <li><strong>Internet Explorer</strong> (1995)</li>
+            <li><strong>Opera</strong> (1995)</li>
+            <li><strong>Konqueror</strong> (2000)</li>
+            <li><strong>Safari</strong> (2003)</li>
+            <li><strong>Firefox</strong> (2004)</li>
+            <li><strong>Google Chrome</strong> (2008)</li>
+        </ul>
+    </section>
+
+    <h2>Netwerkprotocollen: TCP, UDP en IP</h2>
+    <section>
+        <p>
+            Om websites te laden maakt de browser gebruik van verschillende internetprotocollen.
+        </p>
+
+        <div class="tip">
+            <strong>TCP (Transmission Control Protocol)</strong><br>
+            Zorgt voor betrouwbare overdracht en foutcontrole.
+        </div>
+
+        <div class="tip">
+            <strong>UDP (User Datagram Protocol)</strong><br>
+            Sneller, maar zonder foutcontrole.
+        </div>
+
+        <div class="tip">
+            <strong>IP (Internet Protocol)</strong><br>
+            Bepaalt waar data naartoe gestuurd moet worden.
+        </div>
+
+        <p>
+            Samen zorgen deze protocollen ervoor dat data correct over het internet verstuurd wordt.
+        </p>
+    </section>
+
+    <section class="conclusion">
+        <h2>Conclusie</h2>
+
+        <ul>
+            <li>Browsers interpreteren HTML, CSS en JavaScript</li>
+            <li>Rendering engines bouwen DOM- en AOM-structuren op</li>
+            <li>JavaScript wordt uitgevoerd via een JavaScript-engine</li>
+            <li>Backward compatibility speelt een enorme rol</li>
+            <li>Performance en rendering zijn belangrijke onderdelen van webontwikkeling</li>
+        </ul>
+
+        <blockquote>
+            Browsers zijn veel complexer dan ze op het eerste gezicht lijken.
+        </blockquote>
+    </section>
+
+    <footer>
+        <p class="meta">Schrijver: Joshua Wattimena</p>
+    </footer>
+
+</body>
+</html>

@@ -64,6 +64,88 @@ body{
     height: 100vh;
 
     display: flex;
+
+    @media (max-width: 1024px) {
+        /* background-color: red; */
+        display: flex;
+        flex-direction: column;
+
+        .infoboard{
+            height: 20vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: row-reverse;
+            padding: var(--gaps);
+            padding-bottom: 0;
+            
+            .content-infoboard > div {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                padding-left: var(--gaps);
+
+                h1{
+                    grid-area: meesterschap;
+                    padding-left: var(--gaps);
+                }
+
+                ul{
+                    grid-area: list-info;
+                    display: flex;
+                    flex-direction: row;
+                    
+
+                    li{
+                        padding-left: 0rem;
+                        padding-right: 0rem;
+                        margin: 0 var(--gaps);
+                        margin-top: var(--gaps);
+                    }
+
+                    li:last-of-type {
+                        border-bottom: solid 1px var(--border-color-drk);
+                    }
+                }
+            }
+
+            a:has(div[class="profile-label"]){
+                width: 15rem;
+                height: 100%;
+                
+                .profile-label{
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+
+                    .profile-username{
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+
+
+        .dashboard{
+            width: 100vw;
+            height: 80rem;
+            .project-preview{
+                
+                    height: 20rem;
+                
+            }
+            .projects{
+                  height: calc(85vh - (4 * var(--gaps)));
+            }
+
+            .learning-goal-box h3{
+                font-size: var(--fontsize-h3);
+            }
+
+        }
+
+    }
 }
 
 
@@ -104,6 +186,7 @@ h1{
         ul{
             
             li{
+                grid-area: info-infoboard;
                 padding: 0rem var(--gaps) var(--gaps) var(--gaps);
                 list-style-type: none;
                 border-bottom: solid var(--border-color-drk) 1px;
@@ -896,6 +979,8 @@ overflow: hidden;
     padding: var(--gaps);
     margin-top: calc(var(--gaps) / 2);
     height: 1rem;
+    width: fit-content;
+    align-self: center;
 }
 
 /* =========================================

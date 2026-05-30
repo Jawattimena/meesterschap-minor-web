@@ -126,7 +126,7 @@ header h1 {
     color: var(--font-muted);
     
 
-    button {
+    .back-button {
         text-decoration: none;
         color: var(--font-color);
         border: solid 1px var(--border);
@@ -325,10 +325,26 @@ li code {
     margin: var(--gap) 0;
     font-size: 0.95rem;
     color: var(--font-muted);
+    /* max-width: 50%; */
+
+    h4{
+        color: var(--font-color);
+    }
 }
 
 .tip strong {
     color: var(--font-color);
+}
+
+.tip-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+    margin: var(--gap) 0;
+
+    .tip{
+        margin: 0;
+    }
 }
 
 
@@ -342,7 +358,7 @@ li code {
     margin-top: var(--gap-xl);
 }
 
-.conclusion blockquote {
+ blockquote {
     margin: var(--gap-lg) 0;
     padding: var(--gap) 1.5rem;
     border: 1px solid var(--border);
@@ -354,6 +370,7 @@ li code {
     box-shadow: var(--shadow);
     font-family: var(--font-display);
 }
+
 
 
 /* =========================================
@@ -383,6 +400,13 @@ li code {
 .resources a:hover {
     text-decoration: underline;
     opacity: 0.8;
+}
+
+img{
+    /* height: 20rem; */
+    width: 100%;
+    border-radius: var(--radius);
+    border: var(--border) 1px solid;
 }
 
 

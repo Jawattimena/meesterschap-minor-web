@@ -19,18 +19,16 @@
 
     /* colors */
     --font-color: light-dark(#000, #fff);
-    --font-muted-drk: #888;
-    
-    /* --bg-color-drk: linear-gradient(293deg,rgb(0, 2, 8) 0%, rgb(13, 0, 16) 18%, rgb(0, 2, 20) 70%, rgb(23, 1, 43) 100%); */
-    --bg-color-profiletag-drk: #151518;
-    --bg-color-drk: #0f0f11;
-    --bg-color-dashboard-drk: #080808;
+    --font-muted: light-dark(#5f6672, #888);
 
-    --border-color-drk: #1a1a1a;
-
-    --recording-indicator: #00b32a;
+    /* --bg-color: linear-gradient(293deg,rgb(231, 236, 244) 0%, rgb(246, 248, 252) 18%, rgb(238, 243, 250) 70%, rgb(255, 255, 255) 100%); */
+    --bg-color-profiletag: light-dark(#f0f3f8, #151518);
+    --bg-color: light-dark(#f5f7fb, #0f0f11);
+    --bg-color-dashboard: light-dark(#ffffff, #080808);
+    --border-color: light-dark(#d6dde7, #1a1a1a);
 
     /* afmetingen */
+
     --gaps: 1rem;
 
     --border-radius: .8rem;
@@ -45,9 +43,8 @@
 
     /* filters / styling */
 
-    --dropshadow: drop-shadow(0px 0px 5px var(--bg-color-dashboard-drk));
-}   
-
+    --dropshadow: drop-shadow(0px 0px 5px light-dark(rgba(154, 167, 184, 0.35), rgba(8, 8, 8, 0.85)));
+}
 *,
 ::after,
 ::before {
@@ -58,7 +55,7 @@
 }
 
 body{
-    background: var(--bg-color-drk);
+    background: var(--bg-color);
     overflow: hidden;
     width: 100vw;
     height: 100vh;
@@ -104,7 +101,7 @@ body{
                     }
 
                     li:last-of-type {
-                        border-bottom: solid 1px var(--border-color-drk);
+                        border-bottom: solid 1px var(--border-color);
                     }
                 }
             }
@@ -189,7 +186,7 @@ h1{
                 grid-area: info-infoboard;
                 padding: 0rem var(--gaps) var(--gaps) var(--gaps);
                 list-style-type: none;
-                border-bottom: solid var(--border-color-drk) 1px;
+                border-bottom: solid var(--border-color) 1px;
                 margin: var(--gaps) calc(var(--gaps) * 2)  var(--gaps) var(--gaps);
 
                 &:last-of-type{
@@ -201,7 +198,7 @@ h1{
                     line-height: 1.5rem;
 
                     &:first-child{
-                        color: var(--font-muted-drk);
+                        color: var(--font-muted);
                         font-size: .8rem;
                     }
 
@@ -224,8 +221,8 @@ h1{
     }
 
     .profile-label{
-        border: var(--border-color-drk) solid 1px;
-        background-color: var(--bg-color-drk);
+        border: var(--border-color) solid 1px;
+        background-color: var(--bg-color);
         filter: var(--dropshadow);
         
         padding: .75rem;
@@ -238,7 +235,7 @@ h1{
         gap: .75em;
 
         &:hover{
-            background-color: var(--bg-color-profiletag-drk);
+            background-color: var(--bg-color-profiletag);
         }
         
         /* Profiel foto kader */
@@ -256,7 +253,7 @@ h1{
             
             
                 border-radius: 50%;
-                border: solid var(--border-color-drk) 1px;
+                border: solid var(--border-color) 1px;
             }
         }
 
@@ -266,7 +263,7 @@ h1{
             justify-content: center;
 
             > p:nth-child(2){
-                color: var(--font-muted-drk);
+                color: var(--font-muted);
                 font-size: var(--fontsize-small);
             }
         }
@@ -281,7 +278,7 @@ h1{
 .dashboard{
     grid-area: dashboard;
 
-    /* background-color: var(--bg-color-drk); */
+    /* background-color: var(--bg-color); */
     padding: var(--gaps);
     gap: var(--gaps);
     width: 80vw;
@@ -299,9 +296,9 @@ h1{
 
     /* styling van de blokken */
     > div{
-        background-color: var(--bg-color-dashboard-drk);
+        background-color: var(--bg-color-dashboard);
         border-radius: calc(var(--border-radius) * 2);
-        border: solid var(--border-color-drk) 1px;
+        border: solid var(--border-color) 1px;
         filter: var(--dropshadow);
         padding: var(--gaps);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -336,12 +333,12 @@ h1{
             
             .fade-top {
                 top: 0;
-                background: linear-gradient(to bottom, var(--bg-color-dashboard-drk), transparent);
+                background: linear-gradient(to bottom, var(--bg-color-dashboard), transparent);
             }
 
             .fade-bottom {
                 bottom: 0;
-                background: linear-gradient(to top, var(--bg-color-dashboard-drk), transparent);
+                background: linear-gradient(to top, var(--bg-color-dashboard), transparent);
             }
             
         
@@ -374,8 +371,8 @@ h1{
     .weekly-nerd-card{
         scroll-snap-align: center;
         list-style-type: none;
-        border: solid var(--border-color-drk) 1px;
-        background-color: var(--bg-color-drk);
+        border: solid var(--border-color) 1px;
+        background-color: var(--bg-color);
         border-radius: var(--border-radius);
         height: fit-content;
 
@@ -413,7 +410,7 @@ h1{
 
                 .date-weekly-nerds{
                     font-size: var(--fontsize-small);
-                    color: var(--font-muted-drk);
+                    color: var(--font-muted);
                     width: fit-content;
                 }
 
@@ -431,7 +428,7 @@ h1{
                     color: var(--font-color);
                     font-weight: 400;
                     font-family: "Clash-Display";
-                    border-bottom: var(--border-color-drk) solid 1px;
+                    border-bottom: var(--border-color) solid 1px;
                     padding-bottom: var(--gaps);
                     width: 100%;
                 }
@@ -466,12 +463,12 @@ h1{
                             aspect-ratio: 1/1;
                             object-fit: cover;
                             border-radius: 50%;
-                            border: solid var(--border-color-drk) 1px;
+                            border: solid var(--border-color) 1px;
                         }
 
                         .name-weekly-nerd{
                             font-size: var(--fontsize-base);
-                            color: var(--font-muted-drk);
+                            color: var(--font-muted);
                         }
 
                     }
@@ -534,8 +531,8 @@ h1{
 
 /* Inactieve tab styling */
 .tab {
-    background-color: var(--bg-color-dashboard-drk);
-    color: var(--font-muted-drk);
+    background-color: var(--bg-color-dashboard);
+    color: var(--font-muted);
     position: relative;
     padding: .5rem 1rem;
     border: transparent solid 1px;
@@ -548,9 +545,9 @@ h1{
     /* Actieve tab styling */
     &:has(input:checked) {
     color: var(--font-color);
-    background-color: var(--bg-color-drk);
+    background-color: var(--bg-color);
     box-shadow: none;
-    border: solid var(--border-color-drk) 1px;
+    border: solid var(--border-color) 1px;
     border-bottom: none;
     z-index: 1;
     }
@@ -562,11 +559,11 @@ h1{
 
 .tab.active {
     color: var(--font-color);
-    background-color: var(--bg-color-drk);
+    background-color: var(--bg-color);
     z-index: 1;
 
     /* Alleen links, rechts en boven een border — onderkant open zodat het doorloopt in het kaartje */
-    border: solid var(--border-color-drk) 1px;
+    border: solid var(--border-color) 1px;
     border-bottom: none;
 }
 
@@ -574,8 +571,8 @@ h1{
 
 /* Standaard: alle boxes verborgen */
 .learning-goal-box {
-    background-color: var(--bg-color-drk);
-    border: solid var(--border-color-drk) 1px;
+    background-color: var(--bg-color);
+    border: solid var(--border-color) 1px;
     border-radius: var(--border-radius);
     padding: var(--gaps);
     flex: 1;
@@ -596,12 +593,12 @@ h1{
 
     .fade-top {
         top: var(--gaps);
-        background: linear-gradient(to bottom, var(--bg-color-drk), transparent);
+        background: linear-gradient(to bottom, var(--bg-color), transparent);
     }
 
     .fade-bottom {
         bottom: var(--gaps);
-        background: linear-gradient(to top, var(--bg-color-drk), transparent);
+        background: linear-gradient(to top, var(--bg-color), transparent);
     }
 
     > article{
@@ -634,7 +631,7 @@ h1{
 
         p {
 
-            border-left: var(--border-color-drk) solid 1px;
+            border-left: var(--border-color) solid 1px;
             margin: .1rem;
             padding: 0rem var(--gaps);
             line-height: 1.75rem;
@@ -690,10 +687,10 @@ overflow: hidden;
 
 .projects-header{
     margin-bottom: var(--gaps);
-    z-index: 3; !important
+    z-index: 3 !important;
 
     h2{
-        z-index: 3; !important
+        z-index: 3 !important;
     }
 }
 
@@ -732,13 +729,13 @@ overflow: hidden;
 
      .fade-left {
                 top: 0;
-                background: linear-gradient(to right, var(--bg-color-dashboard-drk), transparent);
+                background: linear-gradient(to right, var(--bg-color-dashboard), transparent);
                 justify-self: start;
             }
 
     .fade-right {
         bottom: 0;
-        background: linear-gradient(to left, var(--bg-color-dashboard-drk), transparent);
+        background: linear-gradient(to left, var(--bg-color-dashboard), transparent);
         /* background-color: red; */
         justify-self: end;
     }
@@ -767,12 +764,12 @@ overflow: hidden;
 
 .projects-track::before {
     left: 0;
-    background: linear-gradient(to right, var(--bg-color-dashboard-drk), transparent);
+    background: linear-gradient(to right, var(--bg-color-dashboard), transparent);
 }
 
 .projects-track::after {
     right: 0;
-    background: linear-gradient(to left, var(--bg-color-dashboard-drk), transparent);
+    background: linear-gradient(to left, var(--bg-color-dashboard), transparent);
 }
 
 .projects-track::-webkit-scrollbar{
@@ -789,9 +786,9 @@ overflow: hidden;
 
     scroll-snap-align: center;
 
-    background-color: var(--bg-color-drk);
+    background-color: var(--bg-color);
 
-    border: 1px solid var(--border-color-drk);
+    border: 1px solid var(--border-color);
 
     border-radius: var(--border-radius);
 
@@ -828,7 +825,7 @@ overflow: hidden;
 
     overflow: hidden;
 
-    border: solid 1px var(--border-color-drk);
+    border: solid 1px var(--border-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -898,7 +895,7 @@ overflow: hidden;
     scrollbar-width: none;
 
     p{
-        color: var(--font-muted-drk);
+        color: var(--font-muted);
 
         line-height: 1.7rem;
     }
@@ -908,14 +905,14 @@ overflow: hidden;
         bottom: 0rem;
         margin-bottom: -1rem;
         bottom: 0;
-        background: linear-gradient(to top, var(--bg-color-drk), transparent);
+        background: linear-gradient(to top, var(--bg-color), transparent);
     }
     .fade-top{
         position: sticky;
         bottom: 0rem;
         margin-bottom: -1rem;
         top: 0;
-        background: linear-gradient(to bottom, var(--bg-color-drk), transparent);
+        background: linear-gradient(to bottom, var(--bg-color), transparent);
     }
 }
 
@@ -934,9 +931,9 @@ overflow: hidden;
 
     padding-top: var(--gaps);
 
-    background-color: var(--bg-color-drk);
+    background-color: var(--bg-color);
 
-    border-top: solid 1px var(--border-color-drk);
+    border-top: solid 1px var(--border-color);
 
     z-index: 2;
 
@@ -945,9 +942,9 @@ overflow: hidden;
     
         color: var(--font-color);
     
-        border: solid 1px var(--border-color-drk);
+        border: solid 1px var(--border-color);
     
-        background-color: var(--bg-color-dashboard-drk);
+        background-color: var(--bg-color-dashboard);
     
         padding: .8rem 1rem;
     
@@ -977,9 +974,9 @@ overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--bg-color-drk);
+    background-color: var(--bg-color);
     gap: var(--gaps);
-    border: var(--border-color-drk) solid 1px;
+    border: var(--border-color) solid 1px;
     border-radius: var(--border-radius);
     padding: var(--gaps);
     margin-top: calc(var(--gaps) / 2);
@@ -998,8 +995,8 @@ overflow: hidden;
 
     border-radius: 50%;
 
-    background-color: var(--bg-color-dashboard-drk);
-    border: var(--border-color-drk) solid 1px;
+    background-color: var(--bg-color-dashboard);
+    border: var(--border-color) solid 1px;
 
     position: relative;
 
@@ -1039,9 +1036,9 @@ overflow: hidden;
         translateX(-50%)
         translateY(.4rem);
 
-    background-color: var(--bg-color-drk);
+    background-color: var(--bg-color);
 
-    border: 1px solid var(--border-color-drk);
+    border: 1px solid var(--border-color);
 
     padding: .5rem .8rem;
 
@@ -1080,7 +1077,7 @@ overflow: hidden;
     border-style: solid;
 
     border-color:
-        var(--bg-color-drk)
+        var(--bg-color)
         transparent
         transparent
         transparent;

@@ -129,14 +129,14 @@ body{
 
         .dashboard{
             width: 100vw;
-            height: 80rem;
+            height: 80vh;
             .project-preview{
                 
                     height: 20rem;
                 
             }
             .projects{
-                  height: calc(85vh - (4 * var(--gaps)));
+                height: auto;
             }
 
             .learning-goal-box h3{
@@ -581,7 +581,9 @@ h1{
     flex: 1;
     display: none;
     position: relative;
-    max-height: 33rem;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
     
 
     .fade-top,
@@ -606,7 +608,8 @@ h1{
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        height: 30.5rem;
+        flex: 1;
+        min-height: 0;
         
         overflow-x: hidden;
         overflow-y: auto;
@@ -646,12 +649,14 @@ h1{
     padding: var(--gaps);
     display: flex;
     flex-direction: column;
+    min-height: 0;
 }
 
 .learning-goals-container {
     flex: 1;
     display: flex;
     flex-direction: column;
+    min-height: 0;
 }
 
 

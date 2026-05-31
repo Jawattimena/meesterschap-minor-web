@@ -29,6 +29,26 @@
     --accent-color: light-dark(#6d28d9, #8f5cff);
     --accent-label-color: light-dark(#7c3aed, #9e00ca);
     --accent-label-background: light-dark(#efe7ff, #22092a);
+    --weekly-label-1-color: light-dark(#7c2d12, #ffb38a);
+    --weekly-label-1-background: light-dark(#ffedd5, #3c1907);
+    --weekly-label-2-color: light-dark(#1d4ed8, #93c5fd);
+    --weekly-label-2-background: light-dark(#dbeafe, #102347);
+    --weekly-label-3-color: light-dark(#0f766e, #7dd3c7);
+    --weekly-label-3-background: light-dark(#ccfbf1, #0d2f31);
+    --weekly-label-4-color: light-dark(#a21caf, #f0abfc);
+    --weekly-label-4-background: light-dark(#fae8ff, #38103e);
+    --weekly-label-5-color: light-dark(#b45309, #fcd34d);
+    --weekly-label-5-background: light-dark(#fef3c7, #3a2303);
+    --weekly-label-6-color: light-dark(#be123c, #fda4af);
+    --weekly-label-6-background: light-dark(#ffe4e6, #3f0d1d);
+    --weekly-label-7-color: light-dark(#4338ca, #c4b5fd);
+    --weekly-label-7-background: light-dark(#e9e7ff, #22174f);
+    --weekly-label-8-color: light-dark(#166534, #86efac);
+    --weekly-label-8-background: light-dark(#dcfce7, #0f2918);
+    --weekly-label-9-color: light-dark(#92400e, #fdba74);
+    --weekly-label-9-background: light-dark(#fff4e5, #402008);
+    --weekly-label-10-color: light-dark(#155e75, #67e8f9);
+    --weekly-label-10-background: light-dark(#cffafe, #0d2d38);
     --surface-highlight-color: light-dark(rgba(15, 23, 42, 0.05), rgba(255,255,255,0.02));
     --surface-shadow-color: light-dark(rgba(129, 144, 166, 0.18), rgba(0, 0, 0, 0.1));
     --tab-shadow-color: light-dark(rgba(148, 163, 184, 0.28), rgba(0, 0, 0, 0.4));
@@ -53,10 +73,15 @@
     --fontsize-h2: calc( var(--fontsize-base) * 1.5 );
     --fontsize-h3: calc( var(--fontsize-base) * 1.3 );
     --fontsize-h4: calc( var(--fontsize-base) * 1.1 );
+    --weekly-nerd-title-size: calc( var(--fontsize-base) * 2 );
+    --learning-goal-title-size: calc( var(--fontsize-h3) * 2 );
+    --project-title-size: calc( var(--fontsize-h3) * 2 );
+    --project-preview-height: 30rem;
+    --projects-track-padding: calc( var(--gaps) * 2 );
 
     /* filters / styling */
 
-    --dropshadow: drop-shadow(0px 0px 5px light-dark(rgba(154, 167, 184, 0.35), rgba(8, 8, 8, 0.85)));
+    --dropshadow: drop-shadow(0px 0px 5px light-dark(rgba(154, 167, 184, 0.22), rgba(8, 8, 8, 0.85)));
 }
 *,
 ::after,
@@ -74,88 +99,6 @@ body{
     height: 100vh;
 
     display: flex;
-
-    @media (max-width: 1024px) {
-        /* background-color: red; */
-        display: flex;
-        flex-direction: column;
-
-        .infoboard{
-            height: 20vh;
-            width: 100vw;
-            display: flex;
-            flex-direction: row-reverse;
-            padding: var(--gaps);
-            padding-bottom: 0;
-            
-            .content-infoboard > div {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                height: 100%;
-                padding-left: var(--gaps);
-
-                h1{
-                    grid-area: meesterschap;
-                    padding-left: var(--gaps);
-                }
-
-                ul{
-                    grid-area: list-info;
-                    display: flex;
-                    flex-direction: row;
-                    
-
-                    li{
-                        padding-left: 0rem;
-                        padding-right: 0rem;
-                        margin: 0 var(--gaps);
-                        margin-top: var(--gaps);
-                    }
-
-                    li:last-of-type {
-                        border-bottom: solid 1px var(--border-color);
-                    }
-                }
-            }
-
-            a:has(div[class="profile-label"]){
-                width: 15rem;
-                height: 100%;
-                
-                .profile-label{
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-
-                    .profile-username{
-                        display: flex;
-                        align-items: center;
-                    }
-                }
-            }
-        }
-
-
-        .dashboard{
-            width: 100vw;
-            height: 80vh;
-            .project-preview{
-                
-                    height: 20rem;
-                
-            }
-            .projects{
-                height: auto;
-            }
-
-            .learning-goal-box h3{
-                font-size: var(--fontsize-h3);
-            }
-
-        }
-
-    }
 }
 
 
@@ -179,14 +122,43 @@ h1{
     width: 20vw;
     height: 100vh;
     padding: var(--gaps) 0 var(--gaps) var(--gaps);
+    position: relative;
 
     display: flex;
     flex-direction: column;
     justify-content: end;
 
+    .infoboard-toggle-input{
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+    }
+
+    .infoboard-toggle{
+        display: none;
+    }
+
+    .infoboard-panel{
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--gaps);
+
+        > a{
+            margin-top: auto;
+        }
+    }
+
     .content-infoboard{
         /* padding: var(--gaps) calc(var(--gaps) )  var(--gaps) var(--gaps); */
         height: 100%;
+        flex: 1;
 
         display: flex;
         flex-direction: column;
@@ -283,6 +255,16 @@ h1{
     }
 }
 
+@media (max-width: 1345px) {
+    .infoboard{
+        display: none;
+    }
+
+    .dashboard{
+        width: 100vw;
+    }
+}
+
 
 /* =========================================
    MARK: DASHBOARD
@@ -305,7 +287,7 @@ h1{
     /* "title title"  10vh */
     "weekly-nerds projects"  40vh    
     "learning-goals projects" 1fr   
-    / 3fr 5fr;
+    / minmax(0, 3fr) minmax(0, 5fr);
 
     /* styling van de blokken */
     > div{
@@ -398,6 +380,56 @@ h1{
             transform: scale(1);
         }
 
+        &:nth-of-type(1){
+            --weekly-label-color: var(--weekly-label-1-color);
+            --weekly-label-background: var(--weekly-label-1-background);
+        }
+
+        &:nth-of-type(2){
+            --weekly-label-color: var(--weekly-label-2-color);
+            --weekly-label-background: var(--weekly-label-2-background);
+        }
+
+        &:nth-of-type(3){
+            --weekly-label-color: var(--weekly-label-3-color);
+            --weekly-label-background: var(--weekly-label-3-background);
+        }
+
+        &:nth-of-type(4){
+            --weekly-label-color: var(--weekly-label-4-color);
+            --weekly-label-background: var(--weekly-label-4-background);
+        }
+
+        &:nth-of-type(5){
+            --weekly-label-color: var(--weekly-label-5-color);
+            --weekly-label-background: var(--weekly-label-5-background);
+        }
+
+        &:nth-of-type(6){
+            --weekly-label-color: var(--weekly-label-6-color);
+            --weekly-label-background: var(--weekly-label-6-background);
+        }
+
+        &:nth-of-type(7){
+            --weekly-label-color: var(--weekly-label-7-color);
+            --weekly-label-background: var(--weekly-label-7-background);
+        }
+
+        &:nth-of-type(8){
+            --weekly-label-color: var(--weekly-label-8-color);
+            --weekly-label-background: var(--weekly-label-8-background);
+        }
+
+        &:nth-of-type(9){
+            --weekly-label-color: var(--weekly-label-9-color);
+            --weekly-label-background: var(--weekly-label-9-background);
+        }
+
+        &:nth-of-type(10){
+            --weekly-label-color: var(--weekly-label-10-color);
+            --weekly-label-background: var(--weekly-label-10-background);
+        }
+
         &:last-of-type{
             border-bottom: none;
         }
@@ -430,16 +462,17 @@ h1{
                 
                 
                 .purple-label{
-                    color: var(--accent-label-color);
-                    background-color: var(--accent-label-background);
+                    color: var(--weekly-label-color, var(--accent-label-color));
+                    background-color: var(--weekly-label-background, var(--accent-label-background));
                     height: fit-content;
                     /* border: var(--accent-label-color) solid 1px; */
                 }
 
                 .titel-weekly-nerd{
-                    font-size: calc(var(--fontsize-base) * 2);
+                    font-size: var(--weekly-nerd-title-size);
                     color: var(--font-color);
                     font-weight: 400;
+                    line-height: 1.15;
                     font-family: "Clash-Display";
                     border-bottom: var(--border-color) solid 1px;
                     padding-bottom: var(--gaps);
@@ -449,25 +482,31 @@ h1{
                 > div{
                     display: flex;
                     justify-content: space-between;
-                    height: 2rem;
+                    min-height: 2rem;
                     width: 100%;
                     align-items: center;
+                    gap: calc(var(--gaps) * .75);
+                    flex-wrap: wrap;
                     
 
                     .labels-weekly-nerds{
                         font-size: var(--fontsize-small);
-                        padding: .7rem .5rem;
+                        padding: .5rem .5rem;
                         border-radius: calc( var(--border-radius) / 2);
-                        line-height: 0rem;
+                        line-height: 1.1;
+                        flex: 0 0 auto;
+                        max-width: 100%;
                     }
 
                     > div{
                         display: flex;
+                        flex: 1 1 auto;
                         flex-direction: row;
                         align-items: center;
                         gap: var(--gaps);
 
-                        height: 1.8rem;
+                        min-width: 0;
+                        min-height: 1.8rem;
                         
                         img{
                             flex: 0 0 1.8rem;
@@ -485,7 +524,6 @@ h1{
                         }
 
                     }
-
                 }
 
             }
@@ -494,6 +532,11 @@ h1{
                 border-bottom: none;
             }
         }
+    }
+
+
+    @media (max-width: 1345px) {
+        width: 100vw;
     }
 }
 
@@ -553,7 +596,6 @@ h1{
     font-size: var(--fontsize-small);
     /* letter-spacing: .1rem; */
     cursor: pointer;
-    box-shadow: inset 0px -4px 8px var(--tab-shadow-color);
     
     /* Actieve tab styling */
     &:has(input:checked) {
@@ -584,33 +626,38 @@ h1{
 
 /* Standaard: alle boxes verborgen */
 .learning-goal-box {
+    --learning-goal-box-padding: var(--gaps);
+    --learning-goal-fade-size: 3rem;
     background-color: var(--bg-color);
     border: solid var(--border-color) 1px;
     border-radius: var(--border-radius);
-    padding: var(--gaps);
+    padding: var(--learning-goal-box-padding);
     flex: 1;
     display: none;
     position: relative;
     flex-direction: column;
     min-height: 0;
+    min-width: 0;
+    width: 100%;
     overflow: hidden;
     
 
     .fade-top,
     .fade-bottom {
     position: absolute;
-    left: 0; right: 0;
-    height: 3rem;
+    left: var(--learning-goal-box-padding);
+    right: var(--learning-goal-box-padding);
+    height: var(--learning-goal-fade-size);
     z-index: 2;
     }
 
     .fade-top {
-        top: var(--gaps);
+        top: var(--learning-goal-box-padding);
         background: linear-gradient(to bottom, var(--bg-color), transparent);
     }
 
     .fade-bottom {
-        bottom: var(--gaps);
+        bottom: var(--learning-goal-box-padding);
         background: linear-gradient(to top, var(--bg-color), transparent);
     }
 
@@ -620,6 +667,8 @@ h1{
         gap: 1rem;
         flex: 1;
         min-height: 0;
+        padding: var(--learning-goal-fade-size) 0;
+        box-sizing: border-box;
         
         overflow-x: hidden;
         overflow-y: auto;
@@ -629,8 +678,11 @@ h1{
         border-radius: var(--border-radius);
 
         h3{
-            font-size: calc(var(--fontsize-h3) * 2);
+            font-size: var(--learning-goal-title-size);
             margin-top: 1rem;
+            line-height: 1.1;
+            overflow-wrap: anywhere;
+            hyphens: auto;
             font-family: "Clash-Display";
             font-weight: 400;
         }
@@ -660,6 +712,7 @@ h1{
     display: flex;
     flex-direction: column;
     min-height: 0;
+    min-width: 0;
 }
 
 .learning-goals-container {
@@ -667,12 +720,85 @@ h1{
     display: flex;
     flex-direction: column;
     min-height: 0;
+    min-width: 0;
+    width: 100%;
 }
 
 
 .learning-goal-box h3 {
     font-size: var(--fontsize-h3);
     font-weight: 400;
+}
+
+@media (max-width: 1100px) {
+    .dashboard {
+        --weekly-nerd-title-size: calc( var(--fontsize-base) * 1.65 );
+        --learning-goal-title-size: calc( var(--fontsize-h3) * 1.55 );
+        --project-title-size: calc( var(--fontsize-h3) * 1.55 );
+        --project-preview-height: 24rem;
+        --projects-track-padding: calc( var(--gaps) * 1.2 );
+        grid-template:
+        "weekly-nerds projects" 40vh
+        "learning-goals projects" 1fr
+        / minmax(0, 2.6fr) minmax(0, 5.4fr);
+    }
+
+    .tab {
+        padding: .45rem .8rem;
+    }
+
+    .learning-goal-box {
+        --learning-goal-box-padding: calc(var(--gaps) * .85);
+        --learning-goal-fade-size: 2.5rem;
+    }
+
+    .project-info {
+        padding: var(--gaps);
+    }
+
+    .project-links a {
+        padding: .7rem .9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .dashboard {
+        --project-preview-height: 16rem;
+        grid-template:
+        "weekly-nerds" auto
+        "learning-goals" auto
+        "projects" auto
+        / minmax(0, 1fr);
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .weekly-nerds-dashboard {
+        height: clamp(20rem, 44vh, 23rem);
+
+        .carousel-wrapper {
+            min-height: 18rem;
+        }
+    }
+
+    .learning-goals {
+        height: clamp(28rem, 62vh, 34rem);
+    }
+
+    .projects {
+        height: clamp(42rem, 93vh, 52rem);
+    }
+
+    .fade-effect {
+        flex: 1;
+        min-height: 0;
+    }
 }
 
 
@@ -772,7 +898,7 @@ overflow: hidden;
     scroll-behavior: smooth;
     scroll-snap-stop: always;
     scrollbar-width: none;
-    padding: 0rem calc(var(--gaps) * 2);
+    padding: 0rem var(--projects-track-padding);
 }
 
 .projects-track::before {
@@ -816,12 +942,10 @@ overflow: hidden;
     flex-direction: column;
     
     opacity: 0.4;
-    filter: brightness(0.7);
 }
 
 .project-card.active {
     opacity: 1;
-    filter: brightness(1);
 }
 
 
@@ -833,7 +957,7 @@ overflow: hidden;
     position: relative;
     border-radius: var(--border-radius);
     width: 100%;
-    height: 30rem;
+    height: var(--project-preview-height);
     flex-shrink: 0;
 
     overflow: hidden;
@@ -893,7 +1017,8 @@ overflow: hidden;
     
     font-weight: 400;
 
-    font-size: calc(var(--fontsize-h3) * 2);
+    font-size: var(--project-title-size);
+    line-height: 1.05;
     margin-bottom: calc(var(--gaps) / 2);
 }
 

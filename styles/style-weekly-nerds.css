@@ -23,15 +23,16 @@
     color-scheme: light dark;
 
     /* ── Kleuren ── */
-    --font-color:           light-dark(#0f0f0f, #ffffff);
-    --font-muted:           light-dark(#555, #888);
-    --bg-color:             light-dark(#f5f4ef, #0f0f11);
-    --surface:              light-dark(#ffffff, #1a1a1a);
-    --button-background:    light-dark(#efefed, #080808);
-    --border:               light-dark(#d8d6cc, #2e2e2e);
-    --accent:               light-dark(#c49a00, #f0c040);
-    --code-bg:              light-dark(#efefef, #1a1a1a);
-    --code-color:           light-dark(#000000, #ffffff);
+    --font-color:           light-dark(#000, #fff);
+    --font-muted:           light-dark(#5f6672, #888);
+    --bg-color:             light-dark(#f5f7fb, #0f0f11);
+    --surface:              light-dark(#ffffff, #080808);
+    --button-background:    light-dark(#f0f3f8, #151518);
+    --border:               light-dark(#d6dde7, #1a1a1a);
+    --accent:               light-dark(#6d28d9, #8f5cff);
+    --code-bg:              var(--surface);
+    --code-color:           light-dark(#000, #fff);
+    --button-hover-border:  light-dark(rgba(109, 126, 153, 0.24), rgba(255,255,255,0.08));
 
     /* ── Typografie ── */
     --font-body:            'Satoshi', sans-serif;
@@ -62,7 +63,7 @@
     --radius-lg:            calc(var(--radius) * 1.5);
 
     /* ── Schaduwen ── */
-    --dropshadow: drop-shadow(0px 0px 5px rgba(0, 0, 0, .5));
+    --dropshadow: drop-shadow(0px 0px 5px light-dark(rgba(154, 167, 184, 0.22), rgba(8, 8, 8, 0.85)));
 }
 
 
@@ -143,7 +144,7 @@ header h1 {
         
         &:hover {
             background-color: var(--surface);
-            border-color: rgba(255,255,255,.08);
+            border-color: var(--button-hover-border);
             transform: translateY(-2px);
         }
     }
@@ -389,7 +390,7 @@ li code {
 
 .resources a {
     display: block;
-    color: rgb(255, 255, 255);
+    color: var(--font-color);
     font-family: var(--font-mono);
     font-size: 0.9rem;
     text-decoration: none;

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style-weekly-nerds.css">
+    <title>Modern CSS en Kleurruimtes</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="meta-top">
+            <a href="../index.html" class="back-button">Terug</a>
+
+            <p class="meta">
+                Sanne t' Hooft · GEEN NERD!
+            </p>
+
+            <p class="meta">11-03-2026</p>
+        </div>
+
+        <h1>Modern CSS en kleurruimtes</h1>
+    </header>
+
+    <p class="intro">
+        Moderne CSS-kleurruimtes zoals OKLCH geven webontwikkelaars
+        veel meer controle over gradients, kleurintensiteit en
+        hoe kleuren daadwerkelijk worden waargenomen op moderne schermen.
+    </p>
+
+    <h2>Wat we kunnen leren van Sanne's presentatie over gradients en color spaces</h2>
+    <section>
+        <p>
+            Als webontwikkelaars zijn we gewend om kleuren te definiëren
+            in <code>hex</code>, <code>rgb()</code> of <code>hsl()</code>.
+        </p>
+
+        <p>
+            We vullen een verloopje in met <code>linear-gradient</code>
+            en vertrouwen erop dat de browser het mooi oplost.
+        </p>
+
+        <p>
+            Maar tijdens de presentatie "WDD - kleurtjes"
+            liet Sanne zien dat de manier waarop browsers traditioneel
+            met kleur omgaan flink achterloopt op moderne schermen.
+        </p>
+
+        <p>
+            Het web heeft er krachtige nieuwe kleurruimtes en tools bij gekregen
+            om kleuren écht te laten spatten.
+        </p>
+    </section>
+
+    <h2>De beperking van de traditionele RGB-gradient</h2>
+    <section>
+        <p>
+            Wanneer je een lineaire gradient maakt tussen twee felle kleuren
+            in de standaard RGB-kleurruimte
+            zoals van geel naar paars,
+            gebeurt er iets geks in het midden.
+        </p>
+
+        <p>
+            Er ontstaat vaak een doffe, grijsachtige overgang.
+        </p>
+
+        <p>
+            Hoe komt dat?
+        </p>
+
+        <ul>
+            <li>
+                Een RGB-gradient volgt een rechte lijn
+                door het grijze midden van de kleurkubus.
+            </li>
+
+            <li>
+                De browser berekent het gemiddelde van de rode,
+                groene en blauwe kanalen,
+                waardoor kleuren onderweg helderheid
+                en verzadiging verliezen.
+            </li>
+        </ul>
+
+        <p>
+            Dit wordt ook wel de “dead zone” van een gradient genoemd.
+        </p>
+    </section>
+
+    <h2>HSL: rekenen in een cirkel</h2>
+    <section>
+        <p>
+            Een alternatief dat al langer bestaat is HSL
+            (Hue, Saturation, Lightness).
+        </p>
+
+        <p>
+            Hoewel HSL voor mensen logischer voelt om mee te werken,
+            lost het het gradient-probleem niet perfect op.
+        </p>
+
+        <ul>
+            <li>
+                Een HSL-gradient volgt een cirkel
+                met dezelfde verzadiging en lichtheid.
+            </li>
+
+            <li>
+                Daardoor beweegt de berekening door het volledige kleurenspectrum
+                in plaats van een natuurlijke overgang te maken.
+            </li>
+        </ul>
+
+        <p>
+            Dit resulteert vaak in onverwachte tussenkleuren in je verloop.
+        </p>
+    </section>
+
+    <h2>De oplossing: oklch en de longer hue syntax</h2>
+    <section>
+        <p>
+            Met moderne CSS-kleurruimtes zoals <code>oklch</code>
+            hebben we nu gradients die gebaseerd zijn
+            op hoe het menselijk oog kleur daadwerkelijk waarneemt.
+        </p>
+
+        <p>
+            Bovendien geeft CSS ons nu controle over
+            hoe er door de kleurencirkel wordt gereisd.
+        </p>
+
+        <p>
+            In de presentatie zagen we deze code:
+        </p>
+
+        <pre><code>div:nth-of-type(4) {
+  background-image: linear-gradient(
+    90deg in oklch longer hue,
+    #fc0,
+    #f0c
+  );
+}</code></pre>
+
+        <p>
+            Wat betekent dit?
+        </p>
+
+        <ul>
+            <li>
+                <code>in oklch</code> zorgt ervoor dat de browser
+                tussenliggende kleuren berekent binnen de OKLCH-kleurruimte.
+            </li>
+
+            <li>
+                Hierdoor blijven gradients helder,
+                levendig en zonder grijze dead zone.
+            </li>
+
+            <li>
+                <code>longer hue</code> vertelt de browser
+                om de lange route door de kleurencirkel te nemen.
+            </li>
+        </ul>
+
+        <p>
+            Zo kun je met slechts twee kleuren
+            een volledige regenbooggradient maken.
+        </p>
+    </section>
+
+    <h2>Checken of de browser en hardware het aankunnen</h2>
+    <section>
+        <p>
+            Niet elk scherm kan moderne kleurruimtes
+            zoals <code>display-p3</code> weergeven.
+        </p>
+
+        <p>
+            Daarnaast ondersteunen oudere browsers
+            niet altijd de nieuwste CSS-syntax.
+        </p>
+
+        <p>
+            Gelukkig kunnen we dit tegenwoordig
+            volledig native oplossen met CSS.
+        </p>
+
+        <h3>Checken of het device het gamut ondersteunt</h3>
+
+        <pre><code>:root {
+  @media (color-gamut: p3) {
+    --green: color(display-p3 0 1 0);
+  }
+}</code></pre>
+
+        <p>
+            Hiermee controleer je of het scherm
+            rijkere kleuren kan weergeven.
+        </p>
+
+        <h3>Checken of de browser de syntax begrijpt</h3>
+
+        <pre><code>:root {
+  @supports (color(display-p3 0 1 0)) {
+    --green: color(display-p3 0 1 0);
+  }
+}</code></pre>
+
+        <p>
+            Met <code>@supports</code> controleer je
+            of de browser de nieuwe CSS-syntax begrijpt.
+        </p>
+    </section>
+
+    <section class="conclusion">
+        <h2>Conclusie</h2>
+
+        <p>
+            Moderne CSS-kleurruimtes geven developers
+            veel meer controle over hoe gradients en kleuren eruitzien.
+        </p>
+
+        <ul>
+            <li>Gradients worden helderder en natuurlijker</li>
+            <li>Je voorkomt modderige kleurtransities</li>
+            <li>Met minimale code maak je complexe kleurverlopen</li>
+            <li>Feature detection werkt volledig native in CSS</li>
+        </ul>
+
+        <p>
+            Kleur op het web is daardoor niet langer beperkt
+            tot de oude sRGB-wereld uit de jaren negentig.
+        </p>
+
+        <blockquote>
+            Bouw mee met moderne webstandaarden
+            en laat kleuren echt tot leven komen.
+        </blockquote>
+    </section>
+
+    <footer>
+        <p class="meta">Schrijver: Joshua Wattimena</p>
+    </footer>
+
+</body>
+
+</html>

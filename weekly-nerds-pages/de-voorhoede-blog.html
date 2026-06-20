@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style-weekly-nerds.css">
+    <title>Van frontend tot offline-first applicaties</title>
+</head>
+
+<body>
+
+
+    <header>
+        <div class="meta-top">
+            <a href="../index.html" class="back-button">Terug</a>
+            <p class="meta">
+                Frontend, Accessibility & Offline-first
+            </p>
+            <p class="meta">2026</p>
+        </div>
+        <h1>Van frontend tot offline-first applicaties</h1>
+    </header>
+
+    <p class="intro">
+        Websites zijn allang niet meer slechts een verzameling pagina's met tekst en afbeeldingen.
+        Moderne webontwikkeling draait om gebruiksvriendelijke interfaces, toegankelijkheid voor
+        iedereen en applicaties die zelfs zonder internetverbinding blijven functioneren.
+    </p>
+
+    <h2>Wat doet een frontend developer eigenlijk?</h2>
+    <section>
+        <p>
+            Veel mensen denken dat frontend developers vooral websites bouwen. In de praktijk
+            bestaat het werk uit veel meer dan het schrijven van HTML en CSS.
+        </p>
+
+        <p>
+            Een frontend developer ontwikkelt interfaces die dagelijks door gebruikers worden
+            gebruikt. Daarbij wordt vaak gewerkt met een CMS dat content beheert terwijl de
+            presentatie volledig losstaat van het beheersysteem.
+        </p>
+
+        <p>
+            Deze architectuur wordt steeds vaker gerealiseerd met een headless CMS.
+            Content wordt opgeslagen in een systeem zoals DatoCMS terwijl de frontend
+            onafhankelijk wordt ontwikkeld met moderne frameworks en tooling.
+        </p>
+
+        <ul>
+            <li>Ontwikkelen van gebruiksvriendelijke interfaces</li>
+            <li>Werken met headless CMS-systemen</li>
+            <li>Vertalen van designs naar werkende componenten</li>
+            <li>Samenwerken met contentbeheerders en marketeers</li>
+        </ul>
+
+        <p>
+            Naast technische kennis speelt communicatie een belangrijke rol. Frontend developers
+            moeten complexe technische keuzes regelmatig uitleggen aan mensen zonder technische
+            achtergrond.
+        </p>
+    </section>
+
+    <h2>Het web is groter dan je denkt</h2>
+    <section>
+        <p>
+            Kennis van webstandaarden blijft essentieel. Het web bevat veel gespecialiseerde
+            HTML-elementen die de meeste developers zelden gebruiken.
+        </p>
+
+        <p>
+            Een mooi voorbeeld is het <code>&lt;ruby&gt;</code>-element, dat speciaal bedoeld is
+            voor Japanse en Oost-Aziatische teksten.
+        </p>
+
+        <pre><code>&lt;ruby&gt;
+  漢字
+  &lt;rt&gt;かんじ&lt;/rt&gt;
+&lt;/ruby&gt;</code></pre>
+
+        <p>
+            Hiermee kan uitspraak- of leesinformatie boven tekens worden weergegeven.
+            Het laat zien hoe internationaal en veelzijdig het webplatform eigenlijk is.
+        </p>
+
+        <p>
+            Daarnaast werken frontend developers regelmatig aan blogs, contentpagina's
+            en visuele effecten zoals CSS blend modes om websites aantrekkelijker en
+            interactiever te maken.
+        </p>
+    </section>
+
+    <h2>Toegankelijkheid als fundament</h2>
+    <section>
+        <p>
+            Een website is pas echt succesvol wanneer iedereen deze kan gebruiken.
+            Accessibility specialisten richten zich daarom op het toegankelijk maken
+            van digitale producten voor een breed publiek.
+        </p>
+
+        <ul>
+            <li>Ondersteuning voor schermlezers</li>
+            <li>Volledige toetsenbordnavigatie</li>
+            <li>Voldoende kleurcontrast</li>
+            <li>Duidelijke semantische structuur</li>
+        </ul>
+
+        <p>
+            Toegankelijkheid is geen extra feature die achteraf wordt toegevoegd,
+            maar een integraal onderdeel van ontwerp en ontwikkeling.
+        </p>
+    </section>
+
+    <h2>Consistente codeconventies</h2>
+    <section>
+        <p>
+            Tijdens de presentatie werd ook benadrukt hoe belangrijk consistente
+            codeconventies zijn binnen een project.
+        </p>
+
+        <p>
+            Wanneer je bijvoorbeeld een Astro-component van een andere ontwikkelaar
+            gebruikt, is het verstandig eerst de bestaande architectuur en conventies
+            te begrijpen voordat je wijzigingen aanbrengt.
+        </p>
+
+        <div class="tip">
+            <strong>Begrijp eerst het systeem.</strong><br>
+            Consistente conventies verbeteren onderhoudbaarheid, verminderen fouten
+            en maken toegankelijkheid eenvoudiger om door het hele project heen
+            te bewaken.
+        </div>
+    </section>
+
+    <h2>De opkomst van offline-first applicaties</h2>
+    <section>
+        <p>
+            Traditionele websites gaan ervan uit dat gebruikers altijd verbonden zijn
+            met internet. Offline-first ontwikkeling draait dit uitgangspunt om.
+        </p>
+
+        <p>
+            In plaats van een constante verbinding als vanzelfsprekend te beschouwen,
+            wordt rekening gehouden met onstabiele of ontbrekende netwerken.
+        </p>
+
+        <blockquote>
+            Kan de gebruiker blijven werken wanneer er geen internetverbinding beschikbaar is?
+        </blockquote>
+
+        <p>
+            Dit gedachtegoed sluit aan bij een bredere beweging richting meer controle
+            over digitale infrastructuur en minder afhankelijkheid van externe platformen.
+        </p>
+    </section>
+
+    <h2>Progressive Web Apps</h2>
+    <section>
+        <p>
+            Een belangrijke bouwsteen van offline-first ontwikkeling is de
+            Progressive Web App (PWA).
+        </p>
+
+        <p>
+            Een PWA combineert de voordelen van websites met de gebruikerservaring
+            van native apps.
+        </p>
+
+        <ul>
+            <li>Installeerbaar op desktop en mobiel</li>
+            <li>Gebouwd met webtechnologieën</li>
+            <li>Ondersteuning voor offline gebruik</li>
+            <li>Snelle en responsieve gebruikerservaring</li>
+        </ul>
+    </section>
+
+    <h2>Wat gebeurt er wanneer een gebruiker offline gaat?</h2>
+    <section>
+        <p>
+            Een goede offline-first applicatie blijft bruikbaar wanneer de verbinding
+            wegvalt.
+        </p>
+
+        <ul>
+            <li>Eerder opgehaalde content blijft beschikbaar</li>
+            <li>Acties worden lokaal opgeslagen</li>
+            <li>Data wordt later automatisch gesynchroniseerd</li>
+            <li>De gebruiker kan blijven doorwerken</li>
+        </ul>
+
+        <p>
+            Hierdoor ontstaat een betrouwbaardere ervaring dan bij traditionele
+            online-only applicaties.
+        </p>
+    </section>
+
+    <h2>Waarom offline-first?</h2>
+    <section>
+        <ul>
+            <li>Altijd toegang tot belangrijke informatie</li>
+            <li>Minder afhankelijkheid van netwerkverbindingen</li>
+            <li>Lager dataverbruik</li>
+            <li>Snellere laadtijden</li>
+            <li>Betere mobiele gebruikerservaring</li>
+            <li>Meer controle over dataopslag</li>
+        </ul>
+    </section>
+
+    <h2>Service Workers en caching</h2>
+    <section>
+        <p>
+            Service Workers vormen de basis van veel offline-functionaliteit.
+            Ze functioneren als een laag tussen browser en netwerk.
+        </p>
+
+        <pre><code>Browser
+   ↓
+Service Worker
+   ↓
+Cache / Netwerk</code></pre>
+
+        <p>
+            Hierdoor kan een applicatie bepalen of informatie uit een lokale cache
+            wordt geladen of opnieuw via het netwerk wordt opgehaald.
+        </p>
+    </section>
+
+    <h2>Lokale opslag van gegevens</h2>
+    <section>
+        <p>
+            Voor het lokaal opslaan van gegevens zijn verschillende technieken beschikbaar:
+        </p>
+
+        <ul>
+            <li>Local Storage</li>
+            <li>Session Storage</li>
+            <li>IndexedDB</li>
+        </ul>
+
+        <p>
+            Vooral IndexedDB is interessant voor offline-first applicaties omdat grote
+            hoeveelheden data lokaal kunnen worden opgeslagen en later gesynchroniseerd.
+        </p>
+    </section>
+
+    <h2>Background Sync</h2>
+    <section>
+        <p>
+            Background Sync zorgt ervoor dat acties die offline zijn uitgevoerd
+            automatisch worden verwerkt zodra de gebruiker weer online komt.
+        </p>
+
+        <ul>
+            <li>Formulieren verzenden</li>
+            <li>Notities synchroniseren</li>
+            <li>Bestellingen verwerken</li>
+            <li>Content-updates versturen</li>
+        </ul>
+
+        <p>
+            De gebruiker hoeft hiervoor zelf geen handelingen uit te voeren.
+        </p>
+    </section>
+
+    <h2>Best practices voor offline-first ontwikkeling</h2>
+    <section>
+        <div class="baseline-grid">
+            <div class="baseline-card">
+                <h3>Progressive Enhancement</h3>
+                <p>
+                    Bouw eerst een werkende basis en voeg daarna extra functionaliteit toe.
+                </p>
+            </div>
+
+            <div class="baseline-card">
+                <h3>Cache Invalidation</h3>
+                <p>
+                    Zorg ervoor dat gebruikers geen verouderde gegevens blijven zien.
+                </p>
+            </div>
+
+            <div class="baseline-card">
+                <h3>Error Handling</h3>
+                <p>
+                    Houd rekening met mislukte netwerkverzoeken en retries.
+                </p>
+            </div>
+
+            <div class="baseline-card">
+                <h3>Performance</h3>
+                <p>
+                    Combineer caching en lokale opslag voor maximale snelheid.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <h2>Offline-first en performance</h2>
+    <section>
+        <p>
+            Offline-first ontwikkeling gaat hand in hand met performance-optimalisatie.
+        </p>
+
+        <p>
+            Door slim gebruik te maken van caching, code splitting en lokale opslag
+            reageren applicaties sneller en voelt de gebruikerservaring meer als een
+            native app dan als een traditionele website.
+        </p>
+    </section>
+
+    <section class="conclusion">
+        <h2>Conclusie</h2>
+
+        <ul>
+            <li>Frontend development draait om meer dan alleen HTML en CSS</li>
+            <li>Toegankelijkheid hoort vanaf het begin onderdeel te zijn van het proces</li>
+            <li>Headless CMS'en bieden meer flexibiliteit voor moderne websites</li>
+            <li>Offline-first maakt applicaties betrouwbaarder en sneller</li>
+            <li>PWAs, Service Workers en IndexedDB vormen belangrijke bouwstenen</li>
+            <li>De toekomst van het web is toegankelijk, performant en altijd beschikbaar</li>
+        </ul>
+
+        <blockquote>
+            Het moderne web werkt niet alleen online — het werkt altijd.
+        </blockquote>
+    </section>
+
+    <footer>
+        <p class="meta">Schrijver: Joshua Wattimena</p>
+    </footer>
+
+
+
+</body>
+
+</html>

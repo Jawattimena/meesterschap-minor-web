@@ -576,6 +576,15 @@ h1{
         z-index: 2;
     }
 }
+.learning-goals:has(#reflectie:checked){
+    #box-4{
+        display: flex;
+        z-index: 1;
+    }
+     label:nth-of-type(4){
+        z-index: 2;
+    }
+}
 
 .tabs{
 
@@ -761,7 +770,7 @@ h1{
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
     body {
         overflow-y: auto;
         height: auto;
@@ -1109,6 +1118,7 @@ overflow: hidden;
 ========================================= */
 
 .projects-navigation{
+    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;

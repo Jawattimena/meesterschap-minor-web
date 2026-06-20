@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style-weekly-nerds.css">
+    <title>The Web You Want Blog</title>
+</head>
+
+<body>
+    <header>
+        <div class="meta-top">
+            <a href="../index.html" class="back-button">Terug</a>
+            <p class="meta">
+                Conference: The Web You Want
+            </p>
+            <p class="meta">17-04-2026 & 10-06-2026</p>
+        </div>
+        <h1>The Web You Want</h1>
+    </header>
+
+    <p class="intro">
+        Twee dagen lang draaide het programma om de toekomst van het web. Van Europese
+        digitale onafhankelijkheid en toegankelijkheid tot HTML-first ontwikkelen en
+        de vraag hoe we het web persoonlijker, duurzamer en creatiever kunnen maken.
+    </p>
+
+    <h2>Dag 1</h2>
+    <section>
+        <p>
+            De eerste dag stond grotendeels in het teken van de afhankelijkheid van Europa
+            van grote Amerikaanse technologiebedrijven. Verschillende sprekers bekeken dit
+            vanuit hun eigen expertise, maar kwamen tot dezelfde conclusie: een groot deel
+            van onze digitale infrastructuur draait op een klein aantal Amerikaanse platforms.
+        </p>
+
+        <p>
+            Dat is jarenlang praktisch geweest, maar brengt ook risico's met zich mee.
+            Veranderende wetgeving, geopolitieke spanningen of beleidskeuzes van bedrijven
+            kunnen directe gevolgen hebben voor Europese organisaties.
+        </p>
+
+        <ul>
+            <li>Afhankelijkheid bij geopolitieke spanningen</li>
+            <li>Vraagstukken rondom privacy en dataopslag</li>
+            <li>Innovatie en opbrengsten die vooral buiten Europa terechtkomen</li>
+        </ul>
+
+        <p>
+            Mogelijke oplossingen die werden besproken waren investeren in Europese cloud-
+            en hostingpartijen, het verminderen van leveranciersafhankelijkheid en bewuster
+            kiezen voor open standaarden en open source software.
+        </p>
+    </section>
+
+    <h3>Een klok tekenen met een laser</h3>
+    <section>
+        <p>
+            Tussen de serieuze discussies door was er ook ruimte voor experiment.
+            Een spreker demonstreerde een zelfgebouwde laserprojector waarmee hij
+            klokken kon "tekenen".
+        </p>
+
+        <p>
+            Door een grafiek te genereren en deze met een laser te projecteren ontstond
+            een beeld dat als een wijzerplaat gelezen kon worden. Een mooi voorbeeld
+            van technische creativiteit midden in een conferentie over digitale
+            onafhankelijkheid.
+        </p>
+    </section>
+
+    <h2>Dag 2</h2>
+    <section>
+        <p>
+            Waar dag 1 draaide om infrastructuur en macht, voelde dag 2 veel persoonlijker.
+            Toegankelijkheid, gebruiksvriendelijkheid en de essentie van het web stonden
+            centraal.
+        </p>
+    </section>
+
+    <h3>Leonie Watson — leven met een onvolmaakt web</h3>
+    <section>
+        <p>
+            Leonie Watson, die blind is, gaf een van de meest indrukwekkende presentaties
+            van het evenement. Ze wees op de ironie dat de European Accessibility Act,
+            een wet die toegankelijkheid moet bevorderen, zelf slecht toegankelijk is.
+        </p>
+
+        <ul>
+            <li>Geen duidelijke kopstructuur</li>
+            <li>Geen navigeerbare lijsten</li>
+            <li>Veel complexe tabellen</li>
+        </ul>
+
+        <p>
+            Omdat de informatie moeilijk toegankelijk is via een schermlezer, gebruikt ze
+            regelmatig AI-tools zoals ChatGPT om documenten samen te vatten en begrijpelijk
+            te maken.
+        </p>
+
+        <p>
+            Ook in andere situaties helpt AI haar om barrières te overbruggen. Tijdens het
+            online winkelen zijn productbeschrijvingen vaak onvoldoende. In de fysieke wereld
+            gebruikt ze Meta-glasses om objecten te herkennen en haar omgeving te laten
+            beschrijven.
+        </p>
+
+        <blockquote>
+            AI werd niet gepresenteerd als gimmick, maar als een tolk tussen haar en een
+            wereld die niet altijd voor haar ontworpen is.
+        </blockquote>
+
+        <p>
+            Haar boodschap was duidelijk: bouw toegankelijkheid vanaf het begin in zodat
+            toekomstige gebruikers niet telkens dezelfde obstakels hoeven te overwinnen.
+        </p>
+    </section>
+
+    <h3>Cyd Stumpel — terug naar HTML-first</h3>
+    <section>
+        <p>
+            Cyd Stumpel hield een pleidooi voor progressive enhancement en een terugkeer
+            naar HTML als fundament van moderne webontwikkeling.
+        </p>
+
+        <p>
+            Haar bekende metafoor was die van een roltrap:
+        </p>
+
+        <ul>
+            <li>Een trap moet altijd bruikbaar zijn</li>
+            <li>Een roltrap is een verbetering bovenop die basis</li>
+            <li>Extra functionaliteit mag nooit de kern blokkeren</li>
+        </ul>
+
+        <p>
+            Daarmee contrasteerde ze progressive enhancement met graceful degradation.
+            Haar voorkeur lag duidelijk bij eerst de basis bouwen en daarna pas verrijken.
+        </p>
+    </section>
+
+    <h3>Native accordions met &lt;details&gt;</h3>
+    <section>
+        <p>
+            Als voorbeeld gebruikte ze het native
+            <code>&lt;details&gt;</code>-element.
+            Met moderne CSS kun je dit tegenwoordig animeren zonder JavaScript.
+        </p>
+
+        <pre><code>:root {
+  interpolate-size: allow-keywords;
+}
+
+@supports (interpolate-size: allow-keywords) {
+  @media (prefers-reduced-motion: no-preference) {
+    ::details-content {
+      height: 0;
+      overflow: clip;
+      transition: height 0.4s ease-out,
+                  content-visibility 0.4s allow-discrete;
+    }
+
+    details[open]::details-content {
+      height: auto;
+    }
+  }
+}</code></pre>
+
+        <p>
+            Hiermee ontstaat een volledig native accordion die toegankelijk blijft
+            en geen JavaScript nodig heeft.
+        </p>
+    </section>
+
+    <h3>De Popover API</h3>
+    <section>
+        <p>
+            Een tweede voorbeeld was de nieuwe Popover API waarmee interactieve
+            navigatiemenu's gebouwd kunnen worden zonder JavaScript.
+        </p>
+
+        <pre><code>&lt;header&gt;
+  &lt;button class="nav-toggle"
+          popovertarget="menu"&gt;
+    &lt;span class="open-text"&gt;Menu&lt;/span&gt;
+    &lt;span class="close-text"&gt;Close&lt;/span&gt;
+  &lt;/button&gt;
+
+  &lt;nav id="menu" popover&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+
+        <p>
+            Met <code>:popover-open</code>, <code>@starting-style</code> en
+            <code>clip-path</code> kunnen vloeiende animaties worden toegevoegd.
+            Voor oudere browsers kan via
+            <code>@supports selector(:popover-open)</code>
+            netjes worden teruggevallen op een eenvoudigere versie.
+        </p>
+
+        <p>
+            Volgens Cyd laat dit zien hoe krachtig moderne browsers inmiddels zijn:
+            HTML en CSS vormen vaak een robuuster startpunt dan direct naar
+            JavaScript grijpen.
+        </p>
+    </section>
+
+    <h3>Sara — whimsica11y en plezier op het web</h3>
+    <section>
+        <p>
+            Sara sloot af met een presentatie die ze "whimsica11y" noemde.
+            Een combinatie van toegankelijkheid, experiment en plezier.
+        </p>
+
+        <p>
+            Ze liet zien dat klassieke webcultuur nog steeds bestaat:
+        </p>
+
+        <ul>
+            <li>Webrings</li>
+            <li>Blogrolls</li>
+            <li>Gastenboeken</li>
+            <li>Persoonlijke homepages</li>
+        </ul>
+
+        <p>
+            Websites zoals localghost, henry.codes en Neocities vormden voorbeelden
+            van een web dat nog steeds persoonlijk en eigenzinnig is.
+        </p>
+
+        <p>
+            Daarbij stelde ze twee interessante vragen:
+        </p>
+
+        <ul>
+            <li>
+                Moet alle kunst op het web altijd volledig toegankelijk zijn?
+            </li>
+            <li>
+                Wat is er gebeurd met het experimentele multimediale web?
+            </li>
+        </ul>
+
+        <p>
+            Haar doel was niet om toegankelijkheid af te wijzen, maar om ruimte
+            te behouden voor creativiteit en experiment. Een web dat niet alleen
+            geoptimaliseerd is voor schaal, maar ook voor persoonlijkheid.
+        </p>
+    </section>
+
+    <section class="conclusion">
+        <h3>Conclusie</h3>
+
+        <ul>
+            <li>Europa zoekt naar meer digitale onafhankelijkheid</li>
+            <li>Toegankelijkheid blijft een fundamentele verantwoordelijkheid</li>
+            <li>HTML-first en progressive enhancement winnen terrein</li>
+            <li>Moderne browsers bieden steeds meer native mogelijkheden</li>
+            <li>Het web mag ook persoonlijk, creatief en speels blijven</li>
+        </ul>
+
+        <blockquote>
+            Bouw een web dat toegankelijk, duurzaam én menselijk blijft.
+        </blockquote>
+    </section>
+
+    <footer>
+        <p class="meta">Schrijver: Joshua Wattimena</p>
+    </footer>
+
+
+</body>
+
+</html>
